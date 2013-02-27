@@ -217,4 +217,5 @@ function createTestData(){
 	$.each(ActivityType,function(index,type){
 		console.log("Day '" + ActivityType[index] + "' Length: " +  model.days[0].getLengthByType(index) + " min");
 	});
+	
 }
