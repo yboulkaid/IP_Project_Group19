@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta -->
+		<meta charset="utf-8"/>
+		<title>ajaxModel</title>
+		
+		<!-- JavaScript Libraries -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		
+		<!-- JavaScript -->
+		<!-- ... Models -->
+		<script src="model.js"></script>
+		
+		<!-- ... Views & Controllers -->
+		<script src="myView.js"></script>
+		<script src="myViewController.js"></script>
+		
+		<!-- ... Generic -->
+		<script src="generalController.js"></script>
+		<script>
+			$(document).ready(function() {
+				"use strict";
+				
+				//	Defining Variables
+				var generalController,
+					model;
+				
+				//	Executing
+				model = new Model(0);
+				generalController = new GeneralController(model);
+				generalController.init();
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div id="target-container">
+			<!-- The Target -->
+			
+		</div>
+	</body>
+</html>
