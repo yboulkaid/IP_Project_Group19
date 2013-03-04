@@ -1,0 +1,26 @@
+#list1Container{
+	background-color: #f3f3f3;
+}
+
+#list2Container{
+	background-color: #e3e3e3;
+}
+
+.container{
+	width: 250px;
+	float: left;
+	margin:10px;
+}
+
+.listItem{
+	box-shadow: 0px 0px 5px 0px ;
+	
+	background-color: white;
+	
+	height: 20px;
+	min-width: 200px;
+	margin:10px;
+	padding:3px;
+	
+	list-style-type:none;
+}
