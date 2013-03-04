@@ -7,7 +7,7 @@
 }
 
 .container{
-	width: 250px;
+	width: auto;
 	float: left;
 	margin:10px;
 }
@@ -16,6 +16,42 @@
 	box-shadow: 0px 0px 5px 0px ;
 	
 	background-color: white;
+	
+	height: 20px;
+	min-width: 200px;
+	margin:10px;
+	padding:3px;
+	padding-left : 15px;
+	
+	list-style-type:none;
+}
+
+.flag{
+	margin:-3px;
+	margin-left: -15px;
+	height:26px;
+	float:left;
+	width:10px;
+}
+
+.green{
+	background-color:#94be95;
+}
+
+.red{
+	background-color:#d6a0a0;
+}
+
+.blue{
+	background-color:#7a93af;
+}
+
+.orange{
+	background-color:#f8cb6d;
+}
+
+.placeHolder{
+	background-color:#dfdfdf;
 	
 	height: 20px;
 	min-width: 200px;

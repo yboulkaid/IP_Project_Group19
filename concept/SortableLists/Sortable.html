@@ -9,16 +9,16 @@
 		  $(function() {
 		    $( "#sortable1, #sortable2" ).sortable({
 		    	connectWith: ".connectedLists",
+		    	placeholder: "placeHolder",
 		    	stop: function(event, ui) {
 					var data = "";
 					var order = "";
 			
 			        $(".container li").each(function(i, el){
-			            data += $(el).text();
-			            order += $(el).index();
+			            data += $(el).text() + "	( in " + $(el).parent().attr("id") + " )<br>";
 			        });
 			        
-			        $("#result").html(data + "<br>" + order);
+			        $("#result").html(data);
 		   		}
 		    }).disableSelection();
 			});
@@ -28,18 +28,18 @@
 	<body>
 		<div class="container" id="list1Container">
 			<ul id="sortable1" class="connectedLists">
-				<li class="listItem">Hello !</li>
-				<li class="listItem">I am</li>
-				<li class="listItem">A list</li>
-				<li class="listItem">Drag me !</li>
+				<li class="listItem"><span class="red flag"></span>Hello !</li>
+				<li class="listItem"><span class="green flag"></span>I am</li>
+				<li class="listItem"><span class="red flag"></span>A list</li>
+				<li class="listItem"><span class="blue flag"></span>Drag me !</li>
 			</ul>
 		</div>
 		<div class="container" id="list2Container">
 			<ul id="sortable2" class="connectedLists">
-				<li class="listItem">And</li>
-				<li class="listItem">I am</li>
-				<li class="listItem">Another list</li>
-				<li class="listItem">Drag me youhou !</li>
+				<li class="listItem"><span class="blue flag"></span>And</li>
+				<li class="listItem"><span class="orange flag"></span>I am</li>
+				<li class="listItem"><span class="green flag"></span>Another list</li>
+				<li class="listItem"><span class="red flag"></span>Drag me youhou !</li>
 			</ul>
 		</div>
 		
