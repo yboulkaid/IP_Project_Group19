@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta -->
+		<meta charset="utf-8"/>
+		<title>My Agenda Planner</title>
+		
+		<!-- JavaScript Libraries -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src=""></script>
+		
+		<!-- JavaScript -->
+		<!-- ... Models -->
+		<script src="res/models/model.js"></script>
+		
+		<!-- ... Views & Controllers -->
+		<script src="res/views/mainView.js"></script>
+		<script src="res/controllers/mainViewController.js"></script>
+		
+		<!-- ... Generic -->
+		<script src="myAgendaPlanner.js"></script>
+		<script>
+			$(document).ready(function() {
+				"use strict";
+				//	Defining Variables
+				var application,
+					model;
+				
+				//	Executing
+				model = new Model();
+				application = new MyAgendaPlanner();
+				application.init();
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div id="my-agenda-planner">
+			<!-- My Agenda Planner -->
+			
+		</div>
+	</body>
+</html>
