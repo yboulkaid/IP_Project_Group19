@@ -27,7 +27,7 @@ function MyAgendaPlanner (model) {
 	 *	--------------------------------------------------
 	 */
 	this.init = function () {
-		console.log("init");
+		console.log("myAgendaPlanner - init()");
 		//	Initalizing views by pushing view-objects to the views-array.
 		this.views["main-view"] = {
 			type : "main-view",
@@ -35,7 +35,8 @@ function MyAgendaPlanner (model) {
 			controller : MainViewController
 
 		};
-		
+		//	Displaying default view.
+		this.displayView({}, this.views["main-view"], "my-agenda-planner");
 	};
 	/*
 	 *	displayView (viewParameters, viewObject, targetDOM).
@@ -48,7 +49,17 @@ function MyAgendaPlanner (model) {
 	 *	--------------------------------------------------------------------------
 	 */
 	this.displayView = function (viewParameters, viewObject, targetDOM) {
-		console.log("displayView");
+		console.log("myAgendaPlanner - displayView()");
+		//	Defining variables.
+		var controller,
+			view;
+			
+		//	Creating new view & controller.
+		controller = new viewObject.controller(model);
+		view = new viewObject.view(viewParameters, controller, model);
+		
+		//	Displaying view by pushing returned DOM-element to targetDOM.
+		$("#" + targetDOM).append(view.init());
 		
 	};
 };
