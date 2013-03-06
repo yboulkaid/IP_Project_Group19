@@ -5,6 +5,9 @@
 		<meta charset="utf-8"/>
 		<title>My Agenda Planner</title>
 		
+		<!-- Stylesheets -->
+		
+		
 		<!-- JavaScript Libraries -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
@@ -24,11 +27,31 @@
 				"use strict";
 				//	Defining Variables
 				var application,
-					model;
+					model,
+					testData;
+					
+				//	Function for adding testdata.
+				function createTestData(){
+					model.addDay();
+					model.addActivity(new Activity("Introduction",10,0,""),0);
+					model.addActivity(new Activity("Idea 1",30,0,""),0);
+					model.addActivity(new Activity("Working in groups",35,1,""),0);
+					model.addActivity(new Activity("Idea 1 discussion",15,2,""),0);
+					model.addActivity(new Activity("Coffee break",20,3,""),0);
+					
+					console.log("Day Start: " + model.days[0].getStart());
+					console.log("Day End: " + model.days[0].getEnd());
+					console.log("Day Length: " + model.days[0].getTotalLength() + " min");
+					$.each(ActivityType,function(index,type){
+						console.log("Day '" + ActivityType[index] + "' Length: " +  model.days[0].getLengthByType(index) + " min");
+					});
+				};
 				
 				//	Executing
 				model = new Model();
-				application = new MyAgendaPlanner();
+				createTestData();
+				
+				application = new MyAgendaPlanner(model);
 				application.init();
 				
 			});
