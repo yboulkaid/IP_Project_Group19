@@ -55,13 +55,15 @@
 							$("#boxB").css("width", 0);
 							$("#boxC").css("width", 0);
 							$("#boxD").css("width", 0);
-							$("#fullLineBar").css("visibility", "visible");
+							$("#fullLineBar").css("visibility", "hidden");
+							$("#fullTimeBar").css("visibility", "hidden");
 						}
 						else {
 							$("#boxA").css("width", (red/total)*100 + "%");
 							$("#boxB").css("width", (blue/total)*100 + "%");
 							$("#boxC").css("width", (green/total)*100 + "%");
 							$("#boxD").css("width", (yellow/total)*100 + "%");
+							$("#fullTimeBar").css("visibility", "visible");
 							if (yellow/total*100 <= 30){
 								$("#fullLineBar").css("visibility", "visible");
 							}
@@ -112,16 +114,75 @@
 		</script>
 		
 		<style type="text/css">
-			div#fullLineBar {height: 50px; width: 150px; float: left; z-index: 10; position: absolute; visibility: visible;}
-			div#fullTimeBar {background-color: #E0E0E0; height: 50px; width: 150px; float: left;position: absolute;}
-			div#boxA {background-color: red; height: 100%; width: 0%; float: left;}
-			div#boxB {background-color: blue; height: 100%; width: 0%; float: left;}
-			div#boxC {background-color: green; height: 100%; width: 0%; float: left;}
-			div#boxD {background-color: yellow; height: 100%; width: 0%; float: left;}
-			div#lineLeft { width: 70%; height: 100%; border-right:red solid 2px; float: left;}
-			div#lineRight { width: 30%; height: 100%; float: left;}
-			div#buttonBar {position: relative;}
-			div#container {height: 50px; width: 150px; position: relative;}
+		
+			div#fullLineBar {
+				height: 50px;
+				width: 150px;
+				float: left;
+				z-index: 10;
+				position: absolute;
+				visibility: hidden;
+			}
+			
+			div#fullTimeBar {
+				background-color: #E0E0E0;
+				height: 50px;
+				width: 150px;
+				float: left;
+				position: absolute;
+				visibility: hidden;
+			}
+			
+			div#boxA {
+				background-color: red;
+				height: 100%;
+				width: 0%;
+				float: left;
+			}
+			
+			div#boxB {
+				background-color: blue;
+				height: 100%;
+				width: 0%;
+				float: left;
+			}
+			
+			div#boxC {
+				background-color: green;
+				height: 100%;
+				width: 0%;
+				float: left;
+			}
+			
+			div#boxD {
+				background-color: yellow;
+				height: 100%;
+				width: 0%;
+				float: left;
+			}
+			
+			div#lineLeft {
+				width: 70%;
+				height: 100%;
+				border-right:red solid 2px;
+				float: left;
+			}
+			
+			div#lineRight {
+				width: 30%;
+				height: 100%;
+				float: left;
+			}
+			
+			div#buttonBar {
+				position: relative;
+			}
+			
+			div#container {
+				height: 50px;
+				width: 150px;
+				position: relative;
+			}
 		</style>
 	</head>	
  	<body>
@@ -147,9 +208,5 @@
 			<button id="plusYellow" >PlusYellow</button>
 			<button id="minusYellow">MinusYellow</button>
 	  	</div>
-  	
-  	
-  	
-  	
 	</body>
 </html>
