@@ -13,6 +13,7 @@ h1{
 li{
 	/*list-style-type:none;*/
 	display:block;
+	margin:10px;
 }
 
 .ContainerBox{
@@ -33,15 +34,10 @@ li{
 	
 	height: 20px;
 	min-width: 200px;
-	/*margin:10px;
+	margin:10px;
 	padding:3px;
-	padding-left : 15px;*/
-	
-	margin-top:10px;
-	float: left;
-	display: block;
-	
-	
+	padding-left : 15px;
+	min-height: 26px;
 }
 
 .textList{
@@ -50,12 +46,11 @@ li{
 }
 
 .flag{
-	/*margin:-3px;
-	margin-left: -15px;*/
+	margin:-3px;
+	margin-left: 0px;
 	height:26px;
 	float:left;
 	width:10px;
-	display:block;
 }
 
 .green{
