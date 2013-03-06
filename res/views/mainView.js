@@ -1,0 +1,4 @@
+function MainView () {
+	"use strict";
+	
+};

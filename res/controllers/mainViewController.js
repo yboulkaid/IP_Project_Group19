@@ -1,0 +1,4 @@
+function MainViewController () {
+	"use strict";
+	
+};
