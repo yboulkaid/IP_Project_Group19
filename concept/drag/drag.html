@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Drag n' Drop</title>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+  		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  		<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+ 		<link rel="stylesheet" href="/resources/demos/style.css" />
+		<style>
+			.container {width:220px; height:300px; padding:10px; border:2px solid gray; margin:0px;}
+			#draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0;}
+			/*#droppable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px; }*/
+			*#droppable {width:220px; height:300px; padding:10px; border:2px solid gray; margin:0px;}
+		
+		</style>
+		<script type="text/javascript">
+		// Javascript
+	
+			$(function() {
+				$( "#draggable" ).draggable();
+				$( "#droppable" ).droppable({
+					drop: function( event, ui ) {
+						$( this )
+							.addClass( "ui-state-highlight" )
+							.find( "p" )
+								.html( "Dropped!" );
+												}
+											});
+						});
+
+
+		</script>
+	<script>
+		/*function Box (id) {
+			this._id = id;
+		  
+		};
+		
+		var boxA = new Box("A");
+		var boxB = new Box("B");*/
+		
+		/*function Box2 (id) 
+		
+	</script>
+	</head>
+	<body>
+		<div class="container">
+			<p>Drag your item from this box</p>
+			
+			<div id="draggable" class="ui-widget-content">
+  					<p>ITEM</p>
+			</div>
+			
+		</div>
+		<br/>
+		<div id="droppable">
+			<p>Drag your item to this box</p> 
+				
+		</div>
+		
+		
+		
+	</body>
+</html>
