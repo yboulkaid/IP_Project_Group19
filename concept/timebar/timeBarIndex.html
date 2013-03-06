@@ -15,6 +15,7 @@
 					this.colors["green"] = 0;
 					this.colors["blue"] = 0;
 					this.colors["red"] = 0;
+					this.colors["yellow"] = 0;
 					
 					this.setColor = function (color, val){
 						if(val >= 0){
@@ -41,23 +42,27 @@
 						var total,
 							green,
 							blue,
-							red;
+							red,
+							yellow;
 						
 						green = model.getColor("green");
 						blue = model.getColor("blue");
 						red = model.getColor("red");
-						total = green + blue + red;
+						yellow = model.getColor("yellow");
+						total = green + blue + red + yellow;
 						if (total == 0){
-							$("#boxA").css("height", 0);
-							$("#boxB").css("height", 0);
-							$("#boxC").css("height", 0);
+							$("#boxA").css("width", 0);
+							$("#boxB").css("width", 0);
+							$("#boxC").css("width", 0);
+							$("#boxD").css("width", 0);
 							$("#fullLineBar").css("visibility", "visible");
 						}
 						else {
-							$("#boxA").css("height", (red/total)*100 + "%");
-							$("#boxB").css("height", (blue/total)*100 + "%");
-							$("#boxC").css("height", (green/total)*100 + "%");
-							if (green/total*100 <= 30){
+							$("#boxA").css("width", (red/total)*100 + "%");
+							$("#boxB").css("width", (blue/total)*100 + "%");
+							$("#boxC").css("width", (green/total)*100 + "%");
+							$("#boxD").css("width", (yellow/total)*100 + "%");
+							if (yellow/total*100 <= 30){
 								$("#fullLineBar").css("visibility", "visible");
 							}
 							else{
@@ -94,20 +99,29 @@
 				$("#minusBlue").click(function(){
 					c.removeColor("blue");
 				});
+				
+				$("#plusYellow").click(function(){
+					c.addColor("yellow");
+				});
+				
+				$("#minusYellow").click(function(){
+					c.removeColor("yellow");
+				});
 			
 			});
 		</script>
 		
 		<style type="text/css">
-			div#fullLineBar {height: 150px; width: 50px; float: left; z-index: 10; position: absolute; visibility: visible;}
-			div#fullTimeBar {background-color: yellow; height: 150px; width: 50px; float: left;position: absolute;}
-			div#boxA {background-color: red; height: 0%; width: 100%;}
-			div#boxB {background-color: blue; height: 0%; width: 100%;}
-			div#boxC {background-color: green; height: 0%; width: 100%;}
-			div#lineTop { height: 70%; border-bottom-style: solid;border-bottom-color:red;}
-			div#lineBottom { height: 30%;}
+			div#fullLineBar {height: 50px; width: 150px; float: left; z-index: 10; position: absolute; visibility: visible;}
+			div#fullTimeBar {background-color: #E0E0E0; height: 50px; width: 150px; float: left;position: absolute;}
+			div#boxA {background-color: red; height: 100%; width: 0%; float: left;}
+			div#boxB {background-color: blue; height: 100%; width: 0%; float: left;}
+			div#boxC {background-color: green; height: 100%; width: 0%; float: left;}
+			div#boxD {background-color: yellow; height: 100%; width: 0%; float: left;}
+			div#lineLeft { width: 70%; height: 100%; border-right:red solid 2px; float: left;}
+			div#lineRight { width: 30%; height: 100%; float: left;}
 			div#buttonBar {position: relative;}
-			div#container {height: 150px; width: 50px; position: relative;}
+			div#container {height: 50px; width: 150px; position: relative;}
 		</style>
 	</head>	
  	<body>
@@ -115,11 +129,12 @@
 			<div id= "fullTimeBar">
 				<div id="boxA"></div>
 			  	<div id="boxB"></div>
-			  	<div id="boxC"></div>			
+			  	<div id="boxC"></div>
+			  	<div id="boxD"></div>			
 			</div>
 			<div id= "fullLineBar">
-				<div id= "lineTop"></div>	
-				<div id= "lineBottom"></div>
+				<div id= "lineLeft"></div>	
+				<div id= "lineRight"></div>
 			</div>
 		</div>
 	  	<div id="buttonBar">
@@ -129,6 +144,8 @@
 			<button id="minusRed">MinusRed</button>
 			<button id="plusBlue" >PlusBlue</button>
 			<button id="minusBlue">MinusBlue</button>
+			<button id="plusYellow" >PlusYellow</button>
+			<button id="minusYellow">MinusYellow</button>
 	  	</div>
   	
   	
