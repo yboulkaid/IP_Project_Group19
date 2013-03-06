@@ -39,7 +39,7 @@
 }
 
 .red{
-	background-color:#d6a0a0;
+	background-color:#d9a0a0;
 }
 
 .blue{
@@ -51,7 +51,8 @@
 }
 
 .placeHolder{
-	background-color:#dfdfdf;
+	background-color:black;
+	opacity:0.1;
 	
 	height: 20px;
 	min-width: 200px;
