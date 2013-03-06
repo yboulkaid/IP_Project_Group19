@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Drag &amp; Drop</title>
+		<link rel="stylesheet" href="listsStyle.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>		
+	  <script>
+		  $(function() {
+		    $( "#sortable1, #sortable2" ).sortable({
+		    	connectWith: ".connectedLists",
+		    	placeholder: "placeHolder",
+		    	stop: function(event, ui) {
+					var data = "";
+					var order = "";
+			
+			        $(".container li").each(function(i, el){
+			            data += $(el).text() + "	( in " + $(el).parent().attr("id") + " )<br>";
+			        });
+			        
+			        $("#result").html(data);
+		   		}
+		    }).disableSelection();
+			});
+	  </script>
+	</head>
+
+	<body>
+		<div class="container" id="list1Container">
+			<ul id="sortable1" class="connectedLists">
+				<li class="listItem"><span class="red flag"></span>Hello !</li>
+				<li class="listItem"><span class="green flag"></span>I am</li>
+				<li class="listItem"><span class="red flag"></span>A list</li>
+				<li class="listItem"><span class="blue flag"></span>Drag me !</li>
+			</ul>
+		</div>
+		<div class="container" id="list2Container">
+			<ul id="sortable2" class="connectedLists">
+				<li class="listItem"><span class="blue flag"></span>And</li>
+				<li class="listItem"><span class="orange flag"></span>I am</li>
+				<li class="listItem"><span class="green flag"></span>Another list</li>
+				<li class="listItem"><span class="red flag"></span>Drag me youhou !</li>
+			</ul>
+		</div>
+		
+		<div id="result"> </div>
+	</body>
+</html>
