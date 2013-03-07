@@ -35,37 +35,37 @@ header h1 {
 
 /*	3. Style	*/
 body {
-	background-color:#fffdf1;
+	background:url("../img/body_bkgr.png");
 	font-size:100%;
 
 }
 #main-view-container {
-	background:#00CCB5;
+	/*background:#00CCB5;*/
 	margin:0 auto;
 	padding:1em;
 	width:104em;
 	
 }
 #app-header-container {
-	background:#00BB9D;
+	/*background:#00BB9D;*/
 	
 }
 #app-content-container {
-	background:#008000;
+	/*background:#008000;*/
 	margin:1em 0 0 0;
 	
 }
 
 /*	activity view	*/
 #activity-view-container {
-	background:#7F6453;
+	/*background:#7F6453;*/
 	float:left;
 	margin:0 1em 0 0;
 	min-height:45em;
 	width:20em;
 }
 #add-activity-button-container {
-	background:#D9FBBE;
+	/*background:#D9FBBE;*/
 	min-height:4em;
 	padding:6em 0 0 0;
 	text-align:center;
@@ -85,19 +85,47 @@ body {
 	
 }
 
+/*	day view	*/
 #day-container {
-	background:#008798;
+	/*background:#008798;*/
+	float:left;
+	min-height:45em;
+	max-width:63em;
+	
+}
+#day-container div.dayWrapper {
+	/*background:#7F6453;*/
 	float:left;
 	margin:0 1em 0 0;
 	min-height:45em;
-	width:62em;
+	
 }
+#day-container div.metaContainer {
+	/*background:#D9FBBE;*/
+	min-height:10em;
+	width:20em;
+	
+}
+#day-container ul.dayActivityList {
+	background:#FFFFFF;
+	display: block;
+	min-height:30em;
+	padding:1em;
+	overflow-y:scroll;	
+}
+#day-container ul.dayActivityList li {
+	cursor:pointer;
+	display:block;
+	margin:0 0 1em 0;
+	
+}
+
 #add-day-button-container {
-	background:#CD5931;
+	/*background:#CD5931;*/
 	float:left;
 	min-height:4em;
 	padding:41em 0 0 0;
-	text-align:center;
+	text-align:left;
 	width:20em;
 }
 

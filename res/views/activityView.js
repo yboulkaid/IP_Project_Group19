@@ -53,7 +53,7 @@ function ActivityView (parameters, controller, model, app) {
 		DOM["activities-header"].html("Your Activities");
 		
 		DOM["activities-list"] = $("<ul>");
-		DOM["activities-header-container"].addClass("sortable");
+		DOM["activities-list"].addClass("sortable");
 		DOM["activities-list"].attr({
 			"id" : "activities-list"
 			

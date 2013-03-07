@@ -27,8 +27,32 @@ function DayView (parameters, controller, model, app) {
 		
 		//	Creating DOM-elements.
 		DOM["container"] = $("<div>");
+		DOM["container"].addClass("dayWrapper");
+		
+		DOM["meta-container"] = $("<div>");
+		DOM["meta-container"].addClass("metaContainer");
+		
+		DOM["day-header-container"] = $("<header>");
+		DOM["day-header-container"].addClass("darkmarine boxHeader");
+		DOM["day-header"] = $("<h1>");
+		DOM["day-header"].html("Your Day");
+		
+		DOM["day-activity-list"] = $("<ul>");
+		DOM["day-activity-list"].addClass("sortable dayActivityList");
+		DOM["day-activity-list"].attr({
+			"id" : "day-list-" + parameters.position
+			
+		});
+		DOM["day-activity-list"].sortable({
+			connectWith : ".sortable"
+			
+		}).disableSelection();
 
 		//	Building view.
+		DOM["day-header-container"].append(DOM["day-header"]);
+		DOM["container"].append(DOM["meta-container"]);
+		DOM["container"].append(DOM["day-header-container"]);
+		DOM["container"].append(DOM["day-activity-list"]);
 		
 		//	Returning.
 		console.log(DOM["container"]);
