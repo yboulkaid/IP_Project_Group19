@@ -18,4 +18,14 @@ function MainViewController (model, app) {
 		console.log("mainViewController - init()");
 		
 	}());
+	
+	/*
+	 *	addDayButtonClicked ().
+	 *	This method is triggered when "add day"-button is clicked.
+	 *	--------------------------------------------------------------
+	 */
+	this.addDayButtonClicked = function () {
+		console.log("addDayButtonClicked()");
+		
+	};
 };

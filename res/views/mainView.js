@@ -61,6 +61,13 @@ function MainView (parameters, controller, model, app) {
 			"id" : "add-day-button-container"
 			
 		});
+		DOM["add-day-button"] = $("<button>");
+		DOM["add-day-button"].addClass("bigButton");
+		DOM["add-day-button"].html("Add Day");
+		DOM["add-day-button"].click(function() {
+			controller.addDayButtonClicked();
+			
+		});
 		
 		DOM["clear-fix"] = $("<div>");
 		DOM["clear-fix"].attr({
@@ -69,7 +76,8 @@ function MainView (parameters, controller, model, app) {
 		});
 		
 		//	Building view.
-		DOM["app-header-container"].append(DOM["app-header"]);		
+		DOM["app-header-container"].append(DOM["app-header"]);	
+		DOM["add-day-button-container"].append(DOM["add-day-button"]);
 		DOM["app-content-container"].append(DOM["activity-view-container"]);
 		DOM["app-content-container"].append(DOM["day-container"]);
 		DOM["app-content-container"].append(DOM["add-day-button-container"]);

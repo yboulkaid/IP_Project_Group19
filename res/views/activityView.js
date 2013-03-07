@@ -15,7 +15,7 @@ function ActivityView (parameters, controller, model, app) {
 	 *	This method is used to initialize the view by building the DOM-elements,
 	 *	adding listeners and so forth.
 	 *
-	 *	@return (DOM["activity-view-container"]	| DOM-elements	| 
+	 *	@return (DOM["container"]	| DOM-elements	| 
 	 * 			To be displayed by the displayViev-method from myAgendaPlanner.js).
 	 *	------------------------------------------------------------------------------
 	 */
@@ -116,7 +116,6 @@ function ActivityView (parameters, controller, model, app) {
 				"id" : "parked-" + activity
 				
 			});
-			//this.addControllerForActivity(DOM["activity"], parkedActivities[activity]);
 			
 			DOM["span-list-item"] = $("<span>");
 			DOM["span-list-item"].addClass("listItem");
@@ -144,25 +143,5 @@ function ActivityView (parameters, controller, model, app) {
 			list.append(DOM["activity"]);
 
 		};
-	};
-	/*
-	 *	This method is used to attach the activity with a controller.
-	 *	It had to be placed as a method or the activity object remained
-	 *	the same for all DOM["activity"].
-	 *	------------------------------------
-	 */
-	this.addControllerForActivity = function (DOM, activity) {
-		DOM.sortable({
-			start : function () {
-				controller.activityDrag(activity);
-				
-			},
-			stop : function (e) {
-				var target = e.item,
-					position = false;
-				controller.activityDrop(activity, target, position);
-				
-			}
-		});
 	};
 };
