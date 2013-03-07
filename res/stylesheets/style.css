@@ -3,3 +3,73 @@
  *	This file contains the main styling for the 'My Agenda Planner'-application.
  *	-------------------------------------------------------------------------------
  */
+
+/*	1. Reset	*/
+* {
+	margin: 0;
+	padding: 0;
+}
+header {
+	display: block;
+}
+
+/*	2. Typografi	*/
+body {
+	font-family: "Sanchez", serif;
+	text-shadow: 0 0 1px rgba(0,0,0,0.3);
+}
+#app-header-container h1 {
+	color: #008798;
+	font-family: "Quando", serif;
+	font-size:3em;
+	
+}
+
+/*	3. Style	*/
+body {
+	background-color:#fffdf1;
+	font-size:100%;
+
+}
+#main-view-container {
+	background:#00CCB5;
+	margin:0 auto;
+	padding:1em;
+	width:104em;
+	
+}
+#app-header-container {
+	background:#00BB9D;
+	
+}
+#app-content-container {
+	background:#008000;
+	margin:1em 0 0 0;
+	
+}
+#activity-view-container {
+	background:#7F6453;
+	float:left;
+	margin:0 1em 0 0;
+	min-height:45em;
+	width:20em;
+}
+#day-container {
+	background:#008798;
+	float:left;
+	margin:0 1em 0 0;
+	min-height:45em;
+	width:62em;
+}
+#add-day-button-container {
+	background:#CD5931;
+	float:left;
+	min-height:45em;
+	width:20em;	
+}
+
+/*	Generic	*/
+.clear-fix {
+	clear:both;
+	
+}

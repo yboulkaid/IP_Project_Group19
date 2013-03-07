@@ -35,8 +35,16 @@ function MyAgendaPlanner (model) {
 			controller : MainViewController
 
 		};
+		this.views["activity-view"] = {
+			type : "activity-view",
+			view : ActivityView,
+			controller : ActivityViewController
+			
+		};
 		//	Displaying default view.
 		this.displayView({}, this.views["main-view"], "my-agenda-planner");
+		this.displayView({}, this.views["activity-view"], "activity-view-container");
+
 	};
 	/*
 	 *	displayView (viewParameters, viewObject, targetDOM).
