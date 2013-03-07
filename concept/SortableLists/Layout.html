@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+	<meta charset="utf-8" />
 
 	<link rel="stylesheet" href="layoutStyle.css" />
-<link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Quando' rel='stylesheet' type='text/css'>	
+	<link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Quando' rel='stylesheet' type='text/css'>	
+	
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>	
+		
+	<script>
+	  $(function() {
+	    $( ".sortable" ).sortable({
+	    	connectWith: ".sortable"/*,
+	    	placeholder: "placeHolder",
+	    	stop: function(event, ui) {
+				var data = "";
+				var order = "";
+		
+		        $(".container li").each(function(i, el){
+		            data += $(el).text() + "	( in " + $(el).parent().attr("id") + " )<br>";
+		        });
+		        
+		        $("#result").html(data);
+	   		}*/
+	    }).disableSelection();
+		});
+	</script>
 
-  <title>Layout</title>
-  <meta name="description" content="Layout of IP project app" />
-  <meta name="author" content="Youssef" />
+	<title>Layout</title>
 </head>
 
 <body>
@@ -17,19 +37,19 @@
     <header>
       <h1>My Agenda Planner</h1>
     </header>
-    <div>
+
     	<div class="metaContainer">
     		<div class="buttonContainer">
     			<br/><br/>
-    			<center><button class="bigButton">Add Activity</button></center>
+    			<div align="center"><button class="bigButton">Add Activity</button></div>
     		</div>
       		<div id="activitiesContainer" class="ContainerBox">
       		<div class="marine boxHeader"><b>Your Activities</b></div>
-	      		<ul>
-					<li class="listItem"><span class="yellow flag"></span>Hello !</li>
-					<li class="listItem"><span class="green flag"></span>I am</li>
-					<li class="listItem"><span class="orange flag"></span>A list</li>
-					<li class="listItem"><span class="brown flag"></span>Drag me !</li>
+	      		<ul class="sortable">
+					<li><span class="textList">30 min</span><span class="listItem"><span class="yellow flag"></span>Hello !</span><div class="clear-fix"></div></li>
+					<li><span class="textList">10 min</span><span class="listItem"><span class="green flag"></span>I am an event !</span><div class="clear-fix"></div></li>
+					<li><span class="textList">05 min</span><span class="listItem"><span class="orange flag"></span>And I am draggable !</span><div class="clear-fix"></div></li>
+					<li><span class="textList">09 min</span><span class="listItem"><span class="brown flag"></span>Try now !</span><div class="clear-fix"></div></li>
 				</ul>
       		</div>
     	</div>
@@ -46,16 +66,15 @@
 			</div>
 	      	<div id="dayContainer" class="ContainerBox">
 	      		<div class="darkmarine boxHeader"><b>Your day</b></div>
-	      		<ul>
+	      		<ul class="sortable">
 					<li><span class="textList">08.00</span><span class="listItem"><span class="yellow flag"></span>Hello !</span><div class="clear-fix"></div></li>
-					<li><span class="textList">08.00</span><span class="listItem"><span class="yellow flag"></span>Hello !</span><div class="clear-fix"></div></li>
+					<li><span class="textList">08.00</span><span class="listItem"><span class="green flag"></span>I am an event !</span><div class="clear-fix"></div></li>
+					<li><span class="textList">08.00</span><span class="listItem"><span class="orange flag"></span>Hello !</span><div class="clear-fix"></div></li>
+					<li><span class="textList">08.00</span><span class="listItem"><span class="brown flag"></span>And Hello again !</span><div class="clear-fix"></div></li>
 				</ul>
 	      	</div>
       	</div>
     </div>
-	<button class="bottom bigButton">Add Day</button>
-
-  </div>
-  
+	<button class="bottom bigButton">Add Day</button>  
 </body>
 </html>
