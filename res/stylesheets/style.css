@@ -14,9 +14,17 @@ header {
 }
 
 /*	2. Typografi	*/
-body {
+p, button, li {
 	font-family: "Sanchez", serif;
+	font-size:1em;
 	text-shadow: 0 0 1px rgba(0,0,0,0.3);
+}
+header h1 {
+	color:#FFFFFF;
+	font-family: "Sanchez", serif;
+	font-size:2em;
+	text-shadow: 0 0 1px rgba(0,0,0,0.3);
+		
 }
 #app-header-container h1 {
 	color: #008798;
@@ -47,6 +55,8 @@ body {
 	margin:1em 0 0 0;
 	
 }
+
+/*	activity view	*/
 #activity-view-container {
 	background:#7F6453;
 	float:left;
@@ -54,6 +64,27 @@ body {
 	min-height:45em;
 	width:20em;
 }
+#add-activity-button-container {
+	background:#D9FBBE;
+	min-height:4em;
+	padding:6em 0 0 0;
+	text-align:center;
+
+}
+#activities-list {
+	background:#FFFFFF;
+	display: block;
+	min-height:30em;
+	padding:1em;
+	overflow-y:scroll;
+}
+#activities-list li {
+	cursor:pointer;
+	display:block;
+	margin:0 0 1em 0;
+	
+}
+
 #day-container {
 	background:#008798;
 	float:left;
@@ -68,8 +99,108 @@ body {
 	width:20em;	
 }
 
-/*	Generic	*/
+/*	Classes	*/
 .clear-fix {
 	clear:both;
+	
+}
+.bigButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+	box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+	
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #00bb9d), color-stop(1, #00ccb5) );
+	background:-moz-linear-gradient( center top, #00bb9d 5%, #00ccb5 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00bb9d', endColorstr='#00ccb5');
+	background-color:#00bb9d;
+	
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:2px solid #1c8d7f;
+	
+	display:inline-block;
+	color:#ffffff;
+	
+	width:10em;
+	
+	text-decoration:none;
+	text-shadow:1px 1px 0px #86ae47;
+	
+	height:3em;
+	
+}.bigButton:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #00ccb5), color-stop(1, #00bb9d) );
+	background:-moz-linear-gradient( center top, #00ccb5 5%, #00bb9d 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ccb5', endColorstr='#00bb9d');
+	background-color:#a5cc52;
+	
+}.bigButton:active {
+	position:relative;
+	bottom:-0.1em;
+
+}
+.boxHeader {
+	min-height:3em;
+	text-align:center;
+	
+}
+.listItem {
+	background:#FFFFFF;
+	box-shadow:0 0 0.5em 0;
+	display:block;
+	float:left;
+	
+}
+.listItemType {
+	display:block;
+	float:left;
+	min-width:1em;
+	min-height:2em;
+	
+}
+.listItemText {
+	display:block;
+	float:left;
+	line-height:2em;
+	min-width:11em;
+	padding:0 0 0 0.5em;
+	
+}
+.listTime {
+	display:block;
+	float:left;
+	line-height:2em;
+	min-width:4em;
+	
+}
+/*	Colors classes	*/
+.green{
+	background-color:#5c8a2d;
+	
+}
+
+.yellow{
+	background-color:#c5b441;
+	
+}
+
+.brown{
+	background-color:#7f6453;
+	
+}
+
+.orange{
+	background-color:#cd5931;
+	
+}
+
+.marine{
+	background-color:#00c3a9;
+	
+}
+
+.darkmarine{
+	background-color:#008798;
 	
 }

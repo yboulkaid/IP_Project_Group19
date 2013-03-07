@@ -182,6 +182,12 @@ function Model(){
 		this.notifyObservers();
 	};
 	
+	//	Get Parked Activities
+	this.getParkedActivities = function () {
+		return this.parkedActivities;
+		
+	};
+	
 	//*** OBSERVABLE PATTERN ***
 	this._listeners = [];
 	
