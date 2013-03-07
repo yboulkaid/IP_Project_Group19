@@ -1,6 +1,6 @@
 body{
 	font-family: 'Sanchez', serif;
-	background-color:#fffdf1;
+	background-image: url('knitting250px.png');
 	
 	/*Font smoothing*/
 	text-shadow: 0 0 1px rgba(0,0,0,0.3);
@@ -24,10 +24,14 @@ li{
 
 .ContainerBox{
 	box-shadow: 0px 0px 10px 0px ;
+	background-image: url('fabric_of_squares_gray.png');
 		
+	width:400px;
 	height:500px;
 	margin:10px;
 	padding:10px;
+	
+	overflow:auto;
 }
 
 .clear-fix {
