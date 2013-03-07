@@ -63,8 +63,8 @@ function MyAgendaPlanner (model) {
 			view;
 			
 		//	Creating new view & controller.
-		controller = new viewObject.controller(model);
-		view = new viewObject.view(viewParameters, controller, model);
+		controller = new viewObject.controller(model, this);
+		view = new viewObject.view(viewParameters, controller, model, this);
 		
 		//	Displaying view by pushing returned DOM-element to targetDOM.
 		$("#" + targetDOM).append(view.init());

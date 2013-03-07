@@ -5,7 +5,7 @@
  *	@Parameter 1	(model | object Model | ... ).
  *	-------------------------------------------------
  */
-function MainViewController (model) {
+function MainViewController (model, app) {
 	"use strict";
 	
 	/*

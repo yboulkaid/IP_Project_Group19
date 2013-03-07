@@ -1,4 +1,4 @@
-function MainView (parameters, controller, model) {
+function MainView (parameters, controller, model, app) {
 	"use strict";
 	/*
 	 *	Observer implementation.

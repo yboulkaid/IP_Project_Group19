@@ -1,4 +1,4 @@
-function ActivityView (parameters, controller, model) {
+function ActivityView (parameters, controller, model, app) {
 	"use strict";
 	/*
 	 *	Observer implementation.
@@ -59,8 +59,15 @@ function ActivityView (parameters, controller, model) {
 			
 		});
 		DOM["activities-list"].sortable({
-			connectWith : ".sortable"
-			
+			connectWith : ".sortable",
+			start : function (e, ui) {
+				controller.activityDrag(ui, $(this));
+				
+			},
+			stop : function (e, ui) {
+				controller.activityDrop(ui, $(this));
+				
+			}	
 		}).disableSelection();
 		this.addActivitiesToList(DOM["activities-list"]);
 		
@@ -81,6 +88,7 @@ function ActivityView (parameters, controller, model) {
 	 *	addActivitiesToList
 	 *	This method is used to add parked activites from the model to
 	 *	the activities list (#activities-list).
+	 *	------------------------------------------
 	 */
 	this.addActivitiesToList = function (list) {
 		console.log("activityView - addActivitiesToList()");
@@ -107,7 +115,9 @@ function ActivityView (parameters, controller, model) {
 			DOM["activity"].attr({
 				"id" : "parked-" + activity
 				
-			});			
+			});
+			//this.addControllerForActivity(DOM["activity"], parkedActivities[activity]);
+			
 			DOM["span-list-item"] = $("<span>");
 			DOM["span-list-item"].addClass("listItem");
 			
@@ -134,5 +144,25 @@ function ActivityView (parameters, controller, model) {
 			list.append(DOM["activity"]);
 
 		};
+	};
+	/*
+	 *	This method is used to attach the activity with a controller.
+	 *	It had to be placed as a method or the activity object remained
+	 *	the same for all DOM["activity"].
+	 *	------------------------------------
+	 */
+	this.addControllerForActivity = function (DOM, activity) {
+		DOM.sortable({
+			start : function () {
+				controller.activityDrag(activity);
+				
+			},
+			stop : function (e) {
+				var target = e.item,
+					position = false;
+				controller.activityDrop(activity, target, position);
+				
+			}
+		});
 	};
 };
