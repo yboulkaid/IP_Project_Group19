@@ -28,6 +28,10 @@ function MyAgendaPlanner (model) {
 	 */
 	this.init = function () {
 		console.log("myAgendaPlanner - init()");
+		//	Defining variables.
+		var d,
+			days;
+		
 		//	Initalizing views by pushing view-objects to the views-array.
 		this.views["main-view"] = {
 			type : "main-view",
@@ -41,9 +45,20 @@ function MyAgendaPlanner (model) {
 			controller : ActivityViewController
 			
 		};
-		//	Displaying default view.
+		this.views["day-view"] = {
+			type : "day-view",
+			view : DayView,
+			controller : DayViewController
+			
+		};
+		//	Displaying default view(s).
 		this.displayView({}, this.views["main-view"], "my-agenda-planner");
 		this.displayView({}, this.views["activity-view"], "activity-view-container");
+		days = model.getDays();
+		for (d in days) {
+			this.displayView({day : days[d], position : d}, this.views["day-view"], "day-container");
+
+		};
 
 	};
 	/*

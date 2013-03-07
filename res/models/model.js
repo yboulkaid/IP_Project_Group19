@@ -187,6 +187,11 @@ function Model(){
 		return this.parkedActivities;
 		
 	};
+	//	GetDays
+	this.getDays = function () {
+		return this.days;
+		
+	};
 	
 	//*** OBSERVABLE PATTERN ***
 	this._listeners = [];

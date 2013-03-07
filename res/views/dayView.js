@@ -21,6 +21,7 @@ function DayView (parameters, controller, model, app) {
 	 */
 	this.init = function () {
 		console.log("DayView - init()");
+		console.log(parameters);
 		//	Defining variables.
 		var DOM = [];
 		
