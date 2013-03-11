@@ -7,6 +7,7 @@ function ActivityView (parameters, controller, model, app) {
 	model.addObserver(this);
 	this.update = function (arg) {
 		console.log("activityView - update()");
+		this.addActivitiesToList($("#activities-list"));
 		
 	};
 	
@@ -39,6 +40,11 @@ function ActivityView (parameters, controller, model, app) {
 		DOM["add-activity-button"].html("Add Activity");
 		DOM["add-activity-button"].click(function() {
 			controller.addActivityButtonClicked();
+			
+		});
+		DOM["add-activity-view-container"] = $("<div>");
+		DOM["add-activity-view-container"].attr({
+			"id" : "add-activity-view-container"
 			
 		});
 		
@@ -85,6 +91,7 @@ function ActivityView (parameters, controller, model, app) {
 		//	Building view.
 		DOM["activities-header-container"].append(DOM["activities-header"]);
 		DOM["activities-container"].append(DOM["activities-header-container"]);
+		DOM["activities-container"].append(DOM["add-activity-view-container"]);
 		DOM["activities-container"].append(DOM["activities-list"]);
 		DOM["button-container"].append(DOM["add-activity-button"]);
 		DOM["container"].append(DOM["button-container"]);	
