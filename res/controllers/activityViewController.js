@@ -32,7 +32,8 @@ function ActivityViewController (model, app) {
 			
 		});
 		$("#activities-list").css({
-			"min-height" : "9em"
+			"min-height" : "9em",
+			"max-height" : "9em"
 			
 		});		
 		app.displayView({}, app.views["add-activity-view"], "add-activity-view-container");
