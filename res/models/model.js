@@ -176,13 +176,21 @@ function Model(){
 			this.days[oldday]._moveActivity(oldposition,newposition);
 		} else if(oldday == null) {
 			var activity = this.removeParkedActivity(oldposition);
-			this.days[newday]._addActivity(activity,newposition);
+			if (newday == null) {
+				this.addParkedActivityPos(activity, newposition);
+				
+			} else {
+				this.days[newday]._addActivity(activity,newposition);
+				
+			}
 		} else if(newday == null) {
 			var activity = this.days[oldday]._removeActivity(oldposition);
-			this.addParkedActivity(activity);
+			this.addParkedActivityPos(activity, newposition);
+			
 		} else {
 			var activity = this.days[oldday]._removeActivity(oldposition);
 			this.days[newday]._addActivity(activity,newposition);
+			
 		};
 		this.notifyObservers();
 	};
@@ -202,6 +210,16 @@ function Model(){
 		return this.days[pos];
 		
 	}
+	//	Add PArked Activity Pos
+	this.addParkedActivityPos = function(activity, position){
+		if(position != null){
+			this.parkedActivities.splice(position,0,activity);
+			
+		} else {
+			this.parkedActivities.push(activity);
+			
+		};
+	};
 	
 	//*** OBSERVABLE PATTERN ***
 	this._listeners = [];
