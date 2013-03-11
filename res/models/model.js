@@ -112,9 +112,6 @@ function Day(startH,startM) {
 	// this method will be called when needed from the model
 	// don't call it directly
 	this._moveActivity = function(oldposition,newposition) {
-		if(newposition > oldposition) {
-			newposition--;
-		}
 		var activity = this._removeActivity(oldposition);
 		this._addActivity(activity, newposition);
 	};
@@ -171,6 +168,10 @@ function Model(){
 	// to park activity you need to set the new day to null
 	// to move a parked activity to let's say day 0 you set oldday to null
 	// and new day to 0
+	/*
+	 *	We are using this function between or within a day.
+	 *	------------------------------------------------------
+	 */
 	this.moveActivity = function(oldday, oldposition, newday, newposition) {
 		if(oldday !== null && oldday == newday) {
 			this.days[oldday]._moveActivity(oldposition,newposition);

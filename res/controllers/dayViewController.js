@@ -20,10 +20,11 @@ function DayViewController (model, app) {
 	}());
 	
 	this.startChanged = function (dayID,newText) {
-			var match = /^([0-9]{2}):([0-9]{2})$/.test(newText)
+			var valid = /^([0-9]{2}):([0-9]{2})$/.test(newText)
+			var match = /^([0-9]{2}):([0-9]{2})$/.match(newText)
 			
-			if(match){
-				console.log(match[0]);
+			if(valid){
+				console.log(match);
 				
 			}else{
 				

@@ -31,7 +31,8 @@ function AddActivityViewController (model, app) {
 			
 		});
 		$("#activities-list").css({
-			"min-height" : "30em"
+			"min-height" : "30em",
+			"max-height" : "30em"
 			
 		});				
 	};
