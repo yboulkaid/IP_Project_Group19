@@ -218,8 +218,6 @@ function DayView (parameters, controller, model, app) {
 			};
 		});
 		
-		
-
 		//	Returning.
 		console.log(DOM["container"]);
 		return DOM["container"];
@@ -284,5 +282,9 @@ function DayView (parameters, controller, model, app) {
 			list.append(DOM["activity"]);
 
 		};
+	};
+	
+	this.addMeta = function () {
+		
 	};
 };
