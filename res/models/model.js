@@ -70,13 +70,13 @@ function Day(startH,startM) {
 	// the end time of the day
 	this.getEnd = function() {
 		var end = this._start + this.getTotalLength();
-		return Math.floor(end/60) + ":" + end % 60;
+		return ("0" + Math.floor(end/60)).slice(-2) + ":" + ("0" + (end % 60)).slice(-2);
 	};
 	
 	// returns the string representation Hours:Minutes of 
 	// the start time of the day
 	this.getStart = function() {
-		return Math.floor(this._start/60) + ":" + this._start % 60;
+		return ("0" + Math.floor(this._start/60)).slice(-2) + ":" + ("0" + (this._start % 60)).slice(-2);
 	};
 	
 	// returns the length (in minutes) of activities of certain type
@@ -138,7 +138,7 @@ function Model(){
 		if(startH){
 			day = new Day(startH,startM);
 		} else {
-			day = new Day(15,0);
+			day = new Day(5,0);
 		}
 		this.days.push(day);
 		this.notifyObservers();

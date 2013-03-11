@@ -1,5 +1,8 @@
 function DayView (parameters, controller, model, app) {
 	"use strict";
+	
+	var DOM = [],
+	dndController = new DragAndDropController(model, parameters.position);
 	/*
 	 *	Observer implementation.
 	 *	---------------------------
@@ -7,6 +10,14 @@ function DayView (parameters, controller, model, app) {
 	model.addObserver(this);
 	this.update = function (arg) {
 		console.log("dayView - update()");
+		
+		var startTime = model.getDay(parameters.position).getStart();
+		var endTime = model.getDay(parameters.position).getEnd();
+		var totalLength = model.getDay(parameters.position).getTotalLength();
+		
+		DOM["start-time"].html("Start time : <b> " +  startTime  + " </b><br/>");
+		DOM["end-time"].html("End time : <b> " +  endTime  + " </b><br/>");
+		DOM["total-length"].html("Total Length : <b> " +  totalLength  + " min </b><br/>");
 		
 	};
 	
@@ -19,16 +30,21 @@ function DayView (parameters, controller, model, app) {
 	 * 			To be displayed by the displayViev-method from myAgendaPlanner.js).
 	 *	------------------------------------------------------------------------------
 	 */
-	this.init = function (position) {
+	this.init = function () {
 		console.log("DayView - init()");
 		console.log(parameters);
 		//	Defining variables.
-		var DOM = [],
-			dndController = new DragAndDropController(model, parameters.position);
+
 		
-		var startTime = model.getDay(0).getStart(); //OBS : displays info from the first day only
-		var endTime = model.getDay(0).getEnd(); //OBS : displays info from the first day only
-		var totalLength = model.getDay(0).getTotalLength(); //OBS : displays info from the first day only
+		var startTime = model.getDay(parameters.position).getStart();
+		var endTime = model.getDay(parameters.position).getEnd();
+		var totalLength = model.getDay(parameters.position).getTotalLength();
+		
+		/*var presentationTime = model.getDay(parameters.position).
+		var groupWorkTime
+		var discussionTime
+		var breakTime*/
+		
 		
 		//	Creating DOM-elements.
 		DOM["container"] = $("<div>");
