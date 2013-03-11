@@ -7,6 +7,7 @@ function MainView (parameters, controller, model, app) {
 	model.addObserver(this);
 	this.update = function (arg) {
 		console.log("mainView - update()");
+		this.addDayViews();
 		
 	};
 	
@@ -98,7 +99,11 @@ function MainView (parameters, controller, model, app) {
 		//	Defining variables.
 		var d,
 			days = model.getDays();
+			
+		//	Clearing #day-container
+		$("#day-container").html("");
 		
+		//	Adding day-views.
 		for (d in days) {
 			app.displayView({day : days[d], position : d}, app.views["day-view"], "day-container");
 
