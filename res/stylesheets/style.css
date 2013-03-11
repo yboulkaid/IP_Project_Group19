@@ -274,8 +274,14 @@ body {
 	border-radius: 0.4em;
 	color:#008798;
 	font-weight: bold;
-	
+}
+
+.valid-input{
 	box-shadow:0 0 0.5em #8ae39a;
+}
+
+.valid-input{
+	box-shadow:0 0 0.5em #a41717;
 }
 
 /*	Colors classes	*/

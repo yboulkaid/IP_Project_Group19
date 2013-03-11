@@ -95,12 +95,7 @@ function DayView (parameters, controller, model, app) {
 		DOM["info-container"].addClass("infoContainer");
 		
 		DOM["start-time"] = $("<span>");
-		DOM["start-time"].html("Start time : <b> " +  startTime  + " </b><br/>");
-		
-		DOM["start-time-hour"] = $("<span>");
-		DOM["start-time-hour"].html('Start time : <input type="text" class="text-input" value=' + startTime + '><br/>');
-		//DOM["start-time-hour"].addClass('text-input');
-		DOM["start-time"] = DOM["start-time-hour"];
+		DOM["start-time"].html('Start time : <input type="text" class="text-input" value=' + startTime + '><br/>');
 		
 		DOM["end-time"] = $("<span>");
 		DOM["end-time"].html("End time : <b> " +  endTime  + " </b><br/>");
