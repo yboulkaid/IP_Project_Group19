@@ -115,8 +115,8 @@ function Day(startH,startM) {
 		if(newposition > oldposition) {
 			newposition--;
 		}
-		var activity = this.removeActivity(oldposition);
-		this.addActivity(activity, newposition);
+		var activity = this._removeActivity(oldposition);
+		this._addActivity(activity, newposition);
 	};
 	
 	this.getActivities = function () {
@@ -158,13 +158,13 @@ function Model(){
 	// add an activity to parked activities
 	this.addParkedActivity = function(activity){
 		this.parkedActivities.push(activity);
-		this.notifyObservers();
+		// this.notifyObservers();
 	};
 	
 	// remove an activity on provided position from parked activites 
 	this.removeParkedActivity = function(position) {
 		return this.parkedActivities.splice(position,1)[0];
-		this.notifyObservers();
+		// this.notifyObservers();
 	};
 	
 	// moves activity between the days, or day and parked activities.
@@ -174,16 +174,16 @@ function Model(){
 	this.moveActivity = function(oldday, oldposition, newday, newposition) {
 		if(oldday !== null && oldday == newday) {
 			this.days[oldday]._moveActivity(oldposition,newposition);
-		} if(oldday == null) {
+		} else if(oldday == null) {
 			var activity = this.removeParkedActivity(oldposition);
 			this.days[newday]._addActivity(activity,newposition);
-		} if(newday == null) {
+		} else if(newday == null) {
 			var activity = this.days[oldday]._removeActivity(oldposition);
 			this.addParkedActivity(activity);
 		} else {
 			var activity = this.days[oldday]._removeActivity(oldposition);
 			this.days[newday]._addActivity(activity,newposition);
-		}
+		};
 		this.notifyObservers();
 	};
 	

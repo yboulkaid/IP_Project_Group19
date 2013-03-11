@@ -53,7 +53,7 @@ function MyAgendaPlanner (model) {
 		};
 		//	Displaying default view(s).
 		this.displayView({}, this.views["main-view"], "my-agenda-planner");
-		this.displayView({}, this.views["activity-view"], "activity-view-container");
+		this.displayView({position : null}, this.views["activity-view"], "activity-view-container");
 		days = model.getDays();
 		for (d in days) {
 			this.displayView({day : days[d], position : d}, this.views["day-view"], "day-container");
