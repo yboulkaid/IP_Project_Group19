@@ -44,10 +44,10 @@ function AddActivityViewController (model, app) {
 	this.saveButtonClicked = function (form) {
 		//	Defining variables
 		var type = [];
-		type["presentation"] = 1;
-		type["group work"] = 2;
-		type["discussion"] = 3;
-		type["break"] = 4;
+		type["presentation"] = 0;
+		type["group work"] = 1;
+		type["discussion"] = 2;
+		type["break"] = 3;
 			
 		this.cancelButtonClicked();	//	Closing.
 		
