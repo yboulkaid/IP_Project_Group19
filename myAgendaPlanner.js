@@ -8,6 +8,8 @@
  */
 function MyAgendaPlanner (model) {
 	"use strict";
+	//	Defining variables.
+	var mainView;
 	this.activityPrevPos;	//	This variable is needed to know prevPos when moving between containers.
 
 	/*
@@ -30,10 +32,6 @@ function MyAgendaPlanner (model) {
 	 */
 	this.init = function () {
 		console.log("myAgendaPlanner - init()");
-		//	Defining variables.
-		var d,
-			days;
-		
 		//	Initalizing views by pushing view-objects to the views-array.
 		this.views["main-view"] = {
 			type : "main-view",
@@ -54,13 +52,9 @@ function MyAgendaPlanner (model) {
 			
 		};
 		//	Displaying default view(s).
-		this.displayView({}, this.views["main-view"], "my-agenda-planner");
-		this.displayView({position : null}, this.views["activity-view"], "activity-view-container");
-		days = model.getDays();
-		for (d in days) {
-			this.displayView({day : days[d], position : d}, this.views["day-view"], "day-container");
-
-		};
+		mainView = this.displayView({}, this.views["main-view"], "my-agenda-planner");
+		mainView.addActivityView();
+		mainView.addDayViews();
 
 	};
 	/*
@@ -71,6 +65,8 @@ function MyAgendaPlanner (model) {
 	 *	@Parameter 1	(viewParameters | object {}	| This object should contain view-specific attributes.)
 	 *	@Parameter 2	(viewObject 	| object {}	| view-object, read documentation above.)
 	 *	@Parameter 3	(targetDOM		| string	| "DOM-id", without the #.)
+	 * 
+	 *	@Return			(view			| object	| "instance of main-view".)
 	 *	--------------------------------------------------------------------------
 	 */
 	this.displayView = function (viewParameters, viewObject, targetDOM) {
@@ -86,5 +82,10 @@ function MyAgendaPlanner (model) {
 		//	Displaying view by pushing returned DOM-element to targetDOM.
 		$("#" + targetDOM).append(view.init());
 		
+		//	Returning only if type is main-view.
+		if (viewObject.type == "main-view") {
+			return view;
+			
+		};
 	};
 };

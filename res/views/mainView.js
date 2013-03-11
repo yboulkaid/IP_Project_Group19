@@ -7,9 +7,6 @@ function MainView (parameters, controller, model, app) {
 	model.addObserver(this);
 	this.update = function (arg) {
 		console.log("mainView - update()");
-		console.log(model.getParkedActivities());
-		console.log(model.getDay(0));
-		console.log(model.getDay(1));
 		
 	};
 	
@@ -92,5 +89,19 @@ function MainView (parameters, controller, model, app) {
 		console.log(DOM["main-view-container"]);
 		return DOM["main-view-container"];
 		
+	};
+	this.addActivityView = function () {
+		app.displayView({position : null}, app.views["activity-view"], "activity-view-container");
+		
+	};
+	this.addDayViews = function () {
+		//	Defining variables.
+		var d,
+			days = model.getDays();
+		
+		for (d in days) {
+			app.displayView({day : days[d], position : d}, app.views["day-view"], "day-container");
+
+		};
 	};
 };

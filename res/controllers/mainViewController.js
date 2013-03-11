@@ -26,6 +26,7 @@ function MainViewController (model, app) {
 	 */
 	this.addDayButtonClicked = function () {
 		console.log("addDayButtonClicked()");
+		model.addDay();
 		
 	};
 };
