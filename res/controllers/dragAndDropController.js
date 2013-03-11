@@ -25,9 +25,9 @@ function DragAndDropController (model) {
 	 */
 	this.update = function (e, ui, target) {
 		console.log("---");
-		console.log(ui.item);
+		//console.log(ui.item);
 		console.log(ui.item.index())
-		console.log(target);
+		//console.log(target);
 		if (ui.sender) {
 			console.log(ui.sender);
 				

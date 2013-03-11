@@ -138,7 +138,7 @@ function Model(){
 		if(startH){
 			day = new Day(startH,startM);
 		} else {
-			day = new Day(8,0);
+			day = new Day(15,0);
 		}
 		this.days.push(day);
 		this.notifyObservers();
