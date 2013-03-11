@@ -13,9 +13,6 @@ function DayView (parameters, controller, model, app) {
 		
 		var dayID = parameters.position;
 		var CurrentDay = model.getDay(dayID);
-		
-		
-		
 
 		//	console.log("dayView - update()");
 		this.addActivitiesToList(DOM["day-activity-list"], parameters.position);
@@ -260,7 +257,10 @@ function DayView (parameters, controller, model, app) {
 		//	Defining variables.
 		var activity,
 			colorList = [],
-			activities = model.getDay(position).getActivities();
+			activities = model.getDay(position).getActivities(),
+			startTime = model.getDay(position)._start,
+			currentTime,
+			time;
 		
 		//	Defining color list
 		colorList["Break"] = "yellow";
@@ -273,12 +273,21 @@ function DayView (parameters, controller, model, app) {
 		
 		//	Appending activities to list.
 		for (activity in activities) {
+			if (activity == 0) {
+				currentTime = startTime;
+				
+			} else {
+				currentTime += activities[(activity - 1)].getLength();
+				
+			};
+			time = ("0" + Math.floor(currentTime/60)).slice(-2) + ":" + ("0" + (currentTime % 60)).slice(-2);
+			
 			//	This is a scope-hack to create a new controller for each activity item.
-			this.attachActivityItemViewController(colorList, activity, activities, list);
+			this.attachActivityItemViewController(colorList, activity, activities, list, time);
 
 		};
 	};
-	this.attachActivityItemViewController = function (colorList, activity, activities, list) {
+	this.attachActivityItemViewController = function (colorList, activity, activities, list, time) {
 		//	Defining variables.
 		var controller = new ActivityItemController(model),
 			DOM = [];
@@ -294,7 +303,7 @@ function DayView (parameters, controller, model, app) {
 		
 		DOM["span-time"] = $("<span>");
 		DOM["span-time"].addClass("listTime");
-		DOM["span-time"].html(activities[activity]._length + " min");
+		DOM["span-time"].html(time);
 		
 		DOM["span-type"] = $("<span>");
 		DOM["span-type"].addClass(colorList[activities[activity].getType()] + " listItemType");
