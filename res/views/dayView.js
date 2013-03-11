@@ -104,7 +104,7 @@ function DayView (parameters, controller, model, app) {
 		DOM["day-header-container"] = $("<header>");
 		DOM["day-header-container"].addClass("darkmarine boxHeader");
 		DOM["day-header"] = $("<h1>");
-		DOM["day-header"].html("Day  " (parseInt(dayID) + 1));
+		DOM["day-header"].html("Day  " + (parseInt(dayID) + 1));
 		
 		DOM["day-activity-list"] = $("<ul>");
 		DOM["day-activity-list"].addClass("sortable dayActivityList");
