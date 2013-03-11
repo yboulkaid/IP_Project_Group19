@@ -86,6 +86,12 @@ function MainView (parameters, controller, model, app) {
 		DOM["main-view-container"].append(DOM["app-header-container"]);
 		DOM["main-view-container"].append(DOM["app-content-container"]);
 		
+		//	Attaching eventlistener to window to check for scroll.
+		/*$(window).scroll(function () {
+			controller.windowScroll();
+			
+		});*/
+		
 		//	Returning.
 		console.log(DOM["main-view-container"]);
 		return DOM["main-view-container"];
