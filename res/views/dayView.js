@@ -260,9 +260,7 @@ function DayView (parameters, controller, model, app) {
 		//	Defining variables.
 		var activity,
 			colorList = [],
-			DOM = [],
 			activities = model.getDay(position).getActivities();
-			console.log(activities);
 		
 		//	Defining color list
 		colorList["Break"] = "yellow";
@@ -275,42 +273,54 @@ function DayView (parameters, controller, model, app) {
 		
 		//	Appending activities to list.
 		for (activity in activities) {
-			//	Creating DOM-elements.
-			DOM["activity"] = $("<li>");
-			DOM["activity"].attr({
-				"id" : "parked-" + activity
-				
-			});
-			
-			DOM["span-list-item"] = $("<span>");
-			DOM["span-list-item"].addClass("listItem");
-			
-			DOM["span-time"] = $("<span>");
-			DOM["span-time"].addClass("listTime");
-			DOM["span-time"].html(activities[activity]._length + " min");
-			
-			DOM["span-type"] = $("<span>");
-			DOM["span-type"].addClass(colorList[activities[activity].getType()] + " listItemType");
-			
-			DOM["span-text"] = $("<span>");
-			DOM["span-text"].addClass("listItemText");
-			DOM["span-text"].html(activities[activity]._name);
-			
-			DOM["clear-fix"] = $("<div>");
-			DOM["clear-fix"].addClass("clear-fix");
-			
-			//	Appending to #activities-list.
-			DOM["span-list-item"].append(DOM["span-type"]);
-			DOM["span-list-item"].append(DOM["span-text"]);
-			DOM["activity"].append(DOM["span-time"]);
-			DOM["activity"].append(DOM["span-list-item"]);
-			DOM["activity"].append(DOM["clear-fix"]);
-			list.append(DOM["activity"]);
+			//	This is a scope-hack to create a new controller for each activity item.
+			this.attachActivityItemViewController(colorList, activity, activities, list);
 
 		};
 	};
-	
-	this.addMeta = function () {
+	this.attachActivityItemViewController = function (colorList, activity, activities, list) {
+		//	Defining variables.
+		var controller = new ActivityItemController(model),
+			DOM = [];
+			
+		DOM["activity"] = $("<li>");
+		DOM["activity"].attr({
+			"id" : "parked-" + activity
+			
+		});
+		
+		DOM["span-list-item"] = $("<span>");
+		DOM["span-list-item"].addClass("listItem");
+		
+		DOM["span-time"] = $("<span>");
+		DOM["span-time"].addClass("listTime");
+		DOM["span-time"].html(activities[activity]._length + " min");
+		
+		DOM["span-type"] = $("<span>");
+		DOM["span-type"].addClass(colorList[activities[activity].getType()] + " listItemType");
+		
+		DOM["span-text"] = $("<span>");
+		DOM["span-text"].addClass("listItemText");
+		DOM["span-text"].html(activities[activity]._name);
+		
+		DOM["clear-fix"] = $("<div>");
+		DOM["clear-fix"].addClass("clear-fix");
+		
+		DOM["span-description"] = $("<div>");
+		DOM["span-description"].addClass("list-item-description");
+		
+		//	Appending to #activities-list.
+		DOM["span-list-item"].append(DOM["span-type"]);
+		DOM["span-list-item"].append(DOM["span-text"]);
+		DOM["activity"].append(DOM["span-time"]);
+		DOM["activity"].append(DOM["span-list-item"]);
+		DOM["activity"].append(DOM["clear-fix"]);
+		DOM["activity"].append(DOM["span-description"]);
+		DOM["activity"].click(function() {
+			controller.activityItemClicked(DOM["span-description"], activities[activity]);
+			
+		});
+		list.append(DOM["activity"]);
 		
 	};
 };
