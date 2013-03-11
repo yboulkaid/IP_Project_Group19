@@ -24,7 +24,7 @@ function DayView (parameters, controller, model, app) {
 		console.log(parameters);
 		//	Defining variables.
 		var DOM = [],
-			dndController = new DragAndDropController(model);
+			dndController = new DragAndDropController(model, parameters.position);
 		
 		//	Creating DOM-elements.
 		DOM["container"] = $("<div>");
@@ -48,6 +48,18 @@ function DayView (parameters, controller, model, app) {
 			connectWith : ".sortable",
 			update : function (e, ui) {
 				dndController.update(e, ui, $(this));
+				
+			},
+			start : function (e, ui) {
+				dndController.setStart(e, ui);
+				
+			},
+			over : function (e, ui) {
+				dndController.onOver(e, ui);
+				
+			},
+			out : function (e, ui) {
+				dndController.onOut(e, ui);
 				
 			}
 		}).disableSelection();
