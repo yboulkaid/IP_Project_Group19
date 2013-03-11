@@ -212,6 +212,15 @@ body {
 	min-width:4em;
 	
 }
+
+.infoContainer{
+	font-family: "Sanchez", serif;
+	font-size:1.5em;
+	height:150px;	
+	
+	color: #008798;
+}
+
 /*	Colors classes	*/
 .green{
 	background-color:#5c8a2d;

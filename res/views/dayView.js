@@ -19,12 +19,16 @@ function DayView (parameters, controller, model, app) {
 	 * 			To be displayed by the displayViev-method from myAgendaPlanner.js).
 	 *	------------------------------------------------------------------------------
 	 */
-	this.init = function () {
+	this.init = function (position) {
 		console.log("DayView - init()");
 		console.log(parameters);
 		//	Defining variables.
 		var DOM = [],
 			dndController = new DragAndDropController(model, parameters.position);
+		
+		var startTime = model.getDay(0).getStart(); //OBS : displays info from the first day only
+		var endTime = model.getDay(0).getEnd(); //OBS : displays info from the first day only
+		var totalLength = model.getDay(0).getTotalLength(); //OBS : displays info from the first day only
 		
 		//	Creating DOM-elements.
 		DOM["container"] = $("<div>");
@@ -32,6 +36,18 @@ function DayView (parameters, controller, model, app) {
 		
 		DOM["meta-container"] = $("<div>");
 		DOM["meta-container"].addClass("metaContainer");
+		
+		DOM["info-container"] = $("<div>");
+		DOM["info-container"].addClass("infoContainer");
+		
+		DOM["start-time"] = $("<span>");
+		DOM["start-time"].html("Start time : <b> " +  startTime  + " </b><br/>");
+		
+		DOM["end-time"] = $("<span>");
+		DOM["end-time"].html("End time : <b> " +  endTime  + " </b><br/>");
+		
+		DOM["total-length"] = $("<span>");
+		DOM["total-length"].html("Total Length : <b> " +  totalLength  + " min </b><br/>");
 		
 		DOM["day-header-container"] = $("<header>");
 		DOM["day-header-container"].addClass("darkmarine boxHeader");
@@ -68,6 +84,11 @@ function DayView (parameters, controller, model, app) {
 		this.addActivitiesToList(DOM["day-activity-list"], parameters.position);
 
 		//	Building view.
+		DOM["info-container"].append(DOM['start-time']);
+		DOM["info-container"].append(DOM['end-time']);
+		DOM["info-container"].append(DOM['total-length']);
+		DOM["meta-container"].append(DOM['info-container']);
+		
 		DOM["day-header-container"].append(DOM["day-header"]);
 		DOM["container"].append(DOM["meta-container"]);
 		DOM["container"].append(DOM["day-header-container"]);

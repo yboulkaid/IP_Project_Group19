@@ -93,7 +93,6 @@ function DragAndDropController (model, id) {
 	this.setStart = function (e, ui) {
 		console.log("setStart");
 		this.started = true;
-		//	this.prevPos = ui.item.index();
-		
+
 	};
 };
