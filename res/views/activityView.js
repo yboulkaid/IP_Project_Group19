@@ -64,9 +64,6 @@ function ActivityView (parameters, controller, model, app) {
 			update : function (e, ui) {
 				dndController.update(e, ui, $(this));
 				
-			},
-			stop : function (e, ui) {
-				controller.activityDrop(ui, $(this));
 			}
 		}).disableSelection();
 		this.addActivitiesToList(DOM["activities-list"]);
