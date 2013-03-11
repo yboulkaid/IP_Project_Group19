@@ -51,6 +51,12 @@ function MyAgendaPlanner (model) {
 			controller : DayViewController
 			
 		};
+		this.views["add-activity-view"] = {
+			type : "add-activity-view",
+			view : AddActivityView,
+			controller : AddActivityViewController
+			
+		};
 		//	Displaying default view(s).
 		mainView = this.displayView({}, this.views["main-view"], "my-agenda-planner");
 		mainView.addActivityView();

@@ -26,6 +26,16 @@ function ActivityViewController (model, app) {
 	 */
 	this.addActivityButtonClicked = function () {
 		console.log("addActivityButtonClicked()");
+		$("#add-activity-view-container").html("");
+		$("#add-activity-view-container").css({
+			"min-height" : "20em"
+			
+		});
+		$("#activities-list").css({
+			"min-height" : "9em"
+			
+		});		
+		app.displayView({}, app.views["add-activity-view"], "add-activity-view-container");
 		
 	};
 };
