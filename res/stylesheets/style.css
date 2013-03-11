@@ -289,9 +289,11 @@ body {
 
 .valid-input{
 	box-shadow:0 0 0.5em #8ae39a;
+	background-color: #fffffe;
 }
 
 .invalid-input{
+	background-color: #fffffe;
 	box-shadow:0 0 0.5em #a41717;
 }
 
