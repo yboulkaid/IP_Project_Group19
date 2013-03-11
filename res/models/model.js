@@ -41,6 +41,12 @@ function Activity(name,length,typeid,description){
 	this.getType = function () {
 		return ActivityType[this._typeid];
 	};
+	
+	// This method returns the description of the activity.
+	this.getDescription = function () {
+		return this._description;
+		
+	}
 }
 
 // This is a day consturctor. You can use it to create days, 
