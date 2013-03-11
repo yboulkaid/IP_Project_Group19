@@ -9,9 +9,9 @@ function DayView (parameters, controller, model, app) {
 	 */
 	model.addObserver(this);
 	this.update = function (arg) {
-		console.log("dayView - update()");
-		
-		
+		//	console.log("dayView - update()");
+		this.addActivitiesToList(DOM["day-activity-list"], parameters.position);
+
 		// Meta info update :
 		var startTime = model.getDay(parameters.position).getStart();
 		var endTime = model.getDay(parameters.position).getEnd();
@@ -66,8 +66,6 @@ function DayView (parameters, controller, model, app) {
 	 */
 	this.init = function () {
 		console.log("DayView - init()");
-		console.log(parameters);
-		console.log(parameters.position);
 		
 		//	Defining variables.
 		var dayID = parameters.position;
@@ -106,7 +104,7 @@ function DayView (parameters, controller, model, app) {
 		DOM["day-header-container"] = $("<header>");
 		DOM["day-header-container"].addClass("darkmarine boxHeader");
 		DOM["day-header"] = $("<h1>");
-		DOM["day-header"].html("Day  " + (parseInt(dayID) + 1));
+		DOM["day-header"].html("Day  " /*+ (parseInt(dayID) + 1)*/);
 		
 		DOM["day-activity-list"] = $("<ul>");
 		DOM["day-activity-list"].addClass("sortable dayActivityList");
@@ -117,7 +115,6 @@ function DayView (parameters, controller, model, app) {
 		DOM["day-activity-list"].sortable({
 			connectWith : ".sortable",
 			update : function (e, ui) {
-				//	Updating.
 				dndController.update(e, ui, $(this), app.activityPrevPos);
 				
 			},
@@ -224,7 +221,7 @@ function DayView (parameters, controller, model, app) {
 	 *	------------------------------------------
 	 */
 	this.addActivitiesToList = function (list, position) {
-		console.log("dayView - addActivitiesToList()");
+		console.log("dayView - addActivitiesToList()");	
 		
 		//	Defining variables.
 		var activity,

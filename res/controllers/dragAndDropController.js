@@ -10,7 +10,6 @@ function DragAndDropController (model, id) {
 	//	Defining variables.
 	this.allowedToUpdate = true;
 	this.started = false;
-	//	this.prevPos;
 	
 	/*
 	 *	init ().
@@ -39,7 +38,7 @@ function DragAndDropController (model, id) {
 			arg["old-position"] = prevPos;
 			arg["new-day"] = id;
 			arg["new-position"] = ui.item.index();
-			
+
 			if (ui.sender) {
 				console.log(ui);
 				//	Updating model (between lists).
@@ -53,7 +52,6 @@ function DragAndDropController (model, id) {
 				}
 			}
 			//	Updating.
-			console.log(arg);
 			model.moveActivity(arg["old-day"], arg["old-position"], arg["new-day"], arg["new-position"]);
 			
 			//	Resetting started and allowedToUpdate
