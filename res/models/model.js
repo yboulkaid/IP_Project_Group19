@@ -47,6 +47,12 @@ function Activity(name,length,typeid,description){
 		return this._description;
 		
 	}
+	
+	// Returns the length of the activity.
+	this.getLength = function () {
+		return this._length;
+		
+	}
 }
 
 // This is a day consturctor. You can use it to create days, 
