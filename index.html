@@ -11,6 +11,7 @@
 		
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="res/stylesheets/style.css"/>	
+		<link rel="stylesheet" href="res/stylesheets/timeBar.css"/>	
 		
 		<!-- JavaScript Libraries -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -44,10 +45,14 @@
 					model.addDay();
 					model.addDay();
 					model.addActivity(new Activity("Introduction",10,0,""),0);
-					model.addActivity(new Activity("Idea 1",30,0,""),1);
+					model.addActivity(new Activity("Idea 1",30,0,""),0);
 					model.addActivity(new Activity("Working in groups",35,1,""),null);
 					model.addActivity(new Activity("Idea 1 discussion",15,2,""),0);
 					model.addActivity(new Activity("Coffee break",20,3,""),null);
+					model.addActivity(new Activity("Presentation",35,0,""),1);
+					model.addActivity(new Activity("Group",15,1,""),1);
+					model.addActivity(new Activity("Discussion",20,2,""),1);
+					model.addActivity(new Activity("Coffee break",2,3,""),1);
 					
 					console.log("Day Start: " + model.days[0].getStart());
 					console.log("Day End: " + model.days[0].getEnd());
