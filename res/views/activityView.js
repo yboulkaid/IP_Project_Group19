@@ -62,7 +62,7 @@ function ActivityView (parameters, controller, model, app) {
 		DOM["activities-list"].sortable({
 			connectWith : ".sortable",
 			update : function (e, ui) {
-				controller.update(e, ui, $(this));
+				dndController.update(e, ui, $(this));
 				
 			},
 			stop : function (e, ui) {
