@@ -161,6 +161,7 @@ body {
 	background:#FFFFFF;
 	display: block;
 	min-height:30em;
+	max-height:30em;
 	padding:1em;
 	overflow-y:scroll;
 	
