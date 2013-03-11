@@ -66,8 +66,7 @@ function ActivityView (parameters, controller, model, app) {
 			},
 			stop : function (e, ui) {
 				controller.activityDrop(ui, $(this));
-				
-			}	
+			}
 		}).disableSelection();
 		this.addActivitiesToList(DOM["activities-list"]);
 		
