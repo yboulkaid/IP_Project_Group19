@@ -52,6 +52,6 @@ function AddActivityViewController (model, app) {
 		this.cancelButtonClicked();	//	Closing.
 		
 		//	Updating model.
-		model.addActivity(new Activity(form.name, form.minutes, type[form.select], form.text), null);
+		model.addActivity(new Activity(form.name, parseInt(form.minutes), type[form.select], form.text), null);
 	};
 };
