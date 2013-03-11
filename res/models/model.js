@@ -51,7 +51,7 @@ function Day(startH,startM) {
 	this._activities = [];
 
 	// sets the start time to new value
-	this.setStart = function(startH,startM) {
+	this.setStart = function(model,startH,startM) {
 		this._start = startH * 60 + startM;
 		model.notifyObservers();
 	}

@@ -18,35 +18,26 @@ function DayViewController (model, app) {
 		console.log("DayViewController - init()");
 		
 	}());
-	
+		
 	this.startChanged = function (dayID,newText) {
 			var valid = /^([0-9]{2}):([0-9]{2})$/.test(newText)
-			var match = /^([0-9]{2}):([0-9]{2})$/.match(newText)
+			var match=newText.match(/^([0-9]{2}):([0-9]{2})$/);
 			
 			if(valid){
-				console.log(match);
+				var hours = parseInt(match[1]);
+				var minutes = parseInt(match[2]);
 				
-			}else{
-				
-				console.log("NOT OK");
-			}
-			
-			
-			
-			/*hours = parseInt(hours);
-			minutes = parseInt(minutes);*/
-			
-			/*if(hours >= 0 && hours <= 23 && minutes >=0 && minutes <=59){
-				console.log("OK");
-			}
-			else{
-				
-				console.log("NOT OK");
-			}
-			
-		} else 
+				if(hours >= 0 && hours <= 23 && minutes >=0 && minutes <=59){
+					model.getDay(dayID).setStart(model,hours,minutes);
+					return true;
+				}
+				else{
+					return false;
+				}
+			} else 
 		{
-			console.log("NOT OK");
-		}*/
+			return false;
+		}
 	}
+	
 };

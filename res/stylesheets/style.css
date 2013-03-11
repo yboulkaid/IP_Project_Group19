@@ -283,7 +283,7 @@ body {
 	box-shadow:0 0 0.5em #8ae39a;
 }
 
-.valid-input{
+.invalid-input{
 	box-shadow:0 0 0.5em #a41717;
 }
 

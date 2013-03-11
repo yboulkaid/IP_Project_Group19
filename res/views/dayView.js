@@ -28,9 +28,16 @@ function DayView (parameters, controller, model, app) {
 		DOM["start-time"].html('Start time : <input type="text" class="text-input" id="startInput' + dayID + '" value=' + startTime + '><br/>');
 		DOM["end-time"].html("End time : <b> " +  endTime  + " </b><br/>");
 		
-		$("#startInput" + dayID).bind("propertychange keyup input paste", function(e){
+		$("#startInput" + dayID).bind("propertychange input paste", function(e){
 			var newText = $("#startInput" + dayID).val();
-			controller.startChanged(dayID,newText);
+			
+			if(controller.startChanged(dayID,newText)){
+				$("#startInput" + dayID).addClass('valid-input');
+				$("#startInput" + dayID).removeClass('invalid-input');
+			}else{
+				$("#startInput" + dayID).removeClass('valid-input');
+				$("#startInput" + dayID).addClass('invalid-input');
+			}
 		});
 		
 		
@@ -222,6 +229,19 @@ function DayView (parameters, controller, model, app) {
 					$("#fullLineBar" + dayID).css("visibility", "hidden");
 				};
 			};
+			
+			
+			$("#startInput" + dayID).bind("propertychange keyup input paste", function(e){
+			var newText = $("#startInput" + dayID).val();
+				
+			if(controller.startChanged(dayID,newText)){
+				$("#startInput" + dayID).addClass('valid-input');
+				$("#startInput" + dayID).removeClass('invalid-input');
+			}else{
+				$("#startInput" + dayID).removeClass('valid-input');
+				$("#startInput" + dayID).addClass('invalid-input');
+			}
+			});
 		});
 		
 		//	Returning.
