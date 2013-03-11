@@ -118,6 +118,11 @@ function Day(startH,startM) {
 		var activity = this.removeActivity(oldposition);
 		this.addActivity(activity, newposition);
 	};
+	
+	this.getActivities = function () {
+		return this._activities;
+		
+	};
 }
 
 
@@ -187,11 +192,16 @@ function Model(){
 		return this.parkedActivities;
 		
 	};
-	//	GetDays
+	//	Get Days
 	this.getDays = function () {
 		return this.days;
 		
 	};
+	//	Get Day (position)
+	this.getDay = function (pos) {
+		return this.days[pos];
+		
+	}
 	
 	//*** OBSERVABLE PATTERN ***
 	this._listeners = [];

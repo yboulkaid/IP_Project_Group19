@@ -22,7 +22,8 @@ function ActivityView (parameters, controller, model, app) {
 	this.init = function () {
 		console.log("activityView - init()");
 		//	Defining variables.
-		var DOM = [];
+		var DOM = [],
+			dndController = new DragAndDropController(model);
 		
 		//	Creating DOM-elements.
 		DOM["container"] = $("<div>");
@@ -60,14 +61,10 @@ function ActivityView (parameters, controller, model, app) {
 		});
 		DOM["activities-list"].sortable({
 			connectWith : ".sortable",
-			start : function (e, ui) {
-				controller.activityDrag(ui, $(this));
+			update : function (e, ui) {
+				dndController.update(e, ui, $(this));
 				
-			},
-			stop : function (e, ui) {
-				controller.activityDrop(ui, $(this));
-				
-			}	
+			}
 		}).disableSelection();
 		this.addActivitiesToList(DOM["activities-list"]);
 		
