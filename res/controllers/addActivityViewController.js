@@ -42,6 +42,10 @@ function AddActivityViewController (model, app) {
 	 *	This method adds an activity to actitivy-list.
 	 *	-------------------------------------------------
 	 */
+	this.isTimeValid = function (time){
+		return /^[0-9]+$/.test(time);
+	}
+	
 	this.saveButtonClicked = function (form) {
 		//	Defining variables
 		var type = [];
@@ -50,9 +54,15 @@ function AddActivityViewController (model, app) {
 		type["discussion"] = 2;
 		type["break"] = 3;
 			
-		this.cancelButtonClicked();	//	Closing.
+		
 		
 		//	Updating model.
-		model.addActivity(new Activity(form.name, parseInt(form.minutes), type[form.select], form.text), null);
+		
+		if(this.isTimeValid(form.minutes)){
+			model.addActivity(new Activity(form.name, parseInt(form.minutes), type[form.select], form.text), null);
+			this.cancelButtonClicked();	//	Closing.
+		}else{
+			console.log('NO!');
+		}
 	};
 };

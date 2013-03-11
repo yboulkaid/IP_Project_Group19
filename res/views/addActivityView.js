@@ -43,6 +43,20 @@ function AddActivityView (parameters, controller, model, app) {
 			"placeholder" : "# minutes"
 			
 		});
+		DOM["minutes"].bind("propertychange input paste", function(e){
+			var minutes = $(DOM["minutes"]).val();
+			if(controller.isTimeValid(minutes)){
+				console.log("Valid ");
+				DOM["minutes"].addClass('valid-input');
+				DOM["minutes"].removeClass('invalid-input');
+			}else{
+				console.log("Not Valid ");
+				DOM["minutes"].removeClass('valid-input');
+				DOM["minutes"].addClass('invalid-input');
+			}
+		});
+		
+		
 		
 		//	... Select
 		DOM["type-select"] = $("<select>");
