@@ -9,6 +9,14 @@ function DayView (parameters, controller, model, app) {
 	 */
 	model.addObserver(this);
 	this.update = function (arg) {
+		console.log("dayView - update()");
+		
+		var dayID = parameters.position;
+		var CurrentDay = model.getDay(dayID);
+		
+		
+		
+
 		//	console.log("dayView - update()");
 		this.addActivitiesToList(DOM["day-activity-list"], parameters.position);
 
@@ -17,8 +25,15 @@ function DayView (parameters, controller, model, app) {
 		var endTime = model.getDay(parameters.position).getEnd();
 		var totalLength = model.getDay(parameters.position).getTotalLength();
 		
-		DOM["start-time"].html("Start time : <b> " +  startTime  + " </b><br/>");
+		DOM["start-time"].html('Start time : <input type="text" class="text-input" id="startInput' + dayID + '" value=' + startTime + '><br/>');
 		DOM["end-time"].html("End time : <b> " +  endTime  + " </b><br/>");
+		
+		$("#startInput" + dayID).bind("propertychange keyup input paste", function(e){
+			var newText = $("#startInput" + dayID).val();
+			controller.startChanged(dayID,newText);
+		});
+		
+		
 		DOM["total-length"].html("Total Length : <b> " +  totalLength  + " min </b><br/>");
 		
 		// Time bar update
@@ -29,8 +44,7 @@ function DayView (parameters, controller, model, app) {
 		
 		var totalTime = presentationTime + groupWorkTime + discussionTime + breakTime;
 		
-		var dayID = parameters.position;
-		var CurrentDay = model.getDay(dayID);
+
 		
 		if (totalTime == 0){
 			$("#boxA" + dayID).css("width", 0);
@@ -93,7 +107,7 @@ function DayView (parameters, controller, model, app) {
 		DOM["info-container"].addClass("infoContainer");
 		
 		DOM["start-time"] = $("<span>");
-		DOM["start-time"].html('Start time : <input type="text" class="text-input" value=' + startTime + '><br/>');
+		DOM["start-time"].html('Start time : <input type="text" class="text-input" id="startInput' + dayID + '" value=' + startTime + '><br/>');
 		
 		DOM["end-time"] = $("<span>");
 		DOM["end-time"].html("End time : <b> " +  endTime  + " </b><br/>");
