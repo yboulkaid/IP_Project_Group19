@@ -8,6 +8,8 @@
  */
 function MyAgendaPlanner (model) {
 	"use strict";
+	this.activityPrevPos;	//	This variable is needed to know prevPos when moving between containers.
+
 	/*
 	 *	Views & view-object.
 	 *	the views-array contains view-objects to be sent through the displayView-method.

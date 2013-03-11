@@ -7,6 +7,9 @@ function MainView (parameters, controller, model, app) {
 	model.addObserver(this);
 	this.update = function (arg) {
 		console.log("mainView - update()");
+		console.log(model.getParkedActivities());
+		console.log(model.getDay(0));
+		console.log(model.getDay(1));
 		
 	};
 	

@@ -47,12 +47,14 @@ function DayView (parameters, controller, model, app) {
 		DOM["day-activity-list"].sortable({
 			connectWith : ".sortable",
 			update : function (e, ui) {
-				dndController.update(e, ui, $(this));
+				//	Updating.
+				dndController.update(e, ui, $(this), app.activityPrevPos);
 				
 			},
 			start : function (e, ui) {
 				dndController.setStart(e, ui);
-				
+				app.activityPrevPos = ui.item.index();
+
 			},
 			over : function (e, ui) {
 				dndController.onOver(e, ui);

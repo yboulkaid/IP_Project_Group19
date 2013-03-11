@@ -10,7 +10,7 @@ function DragAndDropController (model, id) {
 	//	Defining variables.
 	this.allowedToUpdate = true;
 	this.started = false;
-	this.startPos;
+	//	this.prevPos;
 	
 	/*
 	 *	init ().
@@ -27,21 +27,21 @@ function DragAndDropController (model, id) {
 	 *	update(e, ui, target).
 	 *	...
 	 */
-	this.update = function (e, ui, target) {
+	this.update = function (e, ui, target, prevPos) {
 		//	Defining variables
 		var arg = [];
 		if (this.allowedToUpdate) {
-			console.log("---"); console.log(ui.item);
-			console.log(ui.item.index()); console.log(target);
+			//	console.log("---"); console.log(ui.item);
+			//	console.log(ui.item.index()); console.log(target);
 			//	Updating model (sorting inside).
 			//	-----------------------------------
 			arg["old-day"] = id;
-			arg["old-position"] = this.startPos;
+			arg["old-position"] = prevPos;
 			arg["new-day"] = id;
 			arg["new-position"] = ui.item.index();
 			
 			if (ui.sender) {
-				console.log(ui.sender.context.id);
+				console.log(ui);
 				//	Updating model (between lists).
 				//	----------------------------------
 				if (ui.sender.context.id == "activities-list") {
@@ -53,6 +53,7 @@ function DragAndDropController (model, id) {
 				}
 			}
 			//	Updating.
+			console.log(arg);
 			model.moveActivity(arg["old-day"], arg["old-position"], arg["new-day"], arg["new-position"]);
 			
 			//	Resetting started and allowedToUpdate
@@ -90,9 +91,9 @@ function DragAndDropController (model, id) {
 	 *	is set to true. This allowes onOver and onOut method to operate.
 	 */	
 	this.setStart = function (e, ui) {
-		console.log("setStart");		
-		this.startPos =  ui.item.index();		
+		console.log("setStart");
 		this.started = true;
+		//	this.prevPos = ui.item.index();
 		
 	};
 };
