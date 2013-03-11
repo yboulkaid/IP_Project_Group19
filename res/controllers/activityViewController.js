@@ -28,26 +28,4 @@ function ActivityViewController (model, app) {
 		console.log("addActivityButtonClicked()");
 		
 	};
-	
-	/*
-	 *	activityDrag(activity).
-	 *	This method is triggered when a activity has started to be dragged.
-	 */
-	this.activityDrag = function (ui, target) {
-		console.log("drag: ");
-		console.log(ui.item);
-		console.log(target);
-		
-	}
-	
-	/*
-	 *	activityDrop(activity, target).
-	 *	This method is triggered when a activity is dropped in a sortable area.
-	 */
-	this.activityDrop = function (ui, target) {
-		console.log("Drop: ");
-		console.log(ui.item);
-		console.log(target);
-		
-	}
 };
