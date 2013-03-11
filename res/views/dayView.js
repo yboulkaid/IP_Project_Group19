@@ -29,29 +29,30 @@ function DayView (parameters, controller, model, app) {
 		
 		var totalTime = presentationTime + groupWorkTime + discussionTime + breakTime;
 		
+		var dayID = parameters.position;
+		var CurrentDay = model.getDay(dayID);
 		
 		if (totalTime == 0){
-			$("#boxA").css("width", 0);
-			$("#boxB").css("width", 0);
-			$("#boxC").css("width", 0);
-			$("#boxD").css("width", 0);
-			$("#fullLineBar").css("visibility", "hidden");
-			$("#fullTimeBar").css("visibility", "hidden");
+			$("#boxA" + dayID).css("width", 0);
+			$("#boxB" + dayID).css("width", 0);
+			$("#boxC" + dayID).css("width", 0);
+			$("#boxD" + dayID).css("width", 0);
+			$("#fullLineBar" + dayID).css("visibility", "hidden");
+			$("#fullTimeBar" + dayID).css("visibility", "hidden");
 		}
 		else {
-			$("#boxA").css("width", (presentationTime/totalTime)*100 + "%");
-			$("#boxB").css("width", (groupWorkTime/totalTime)*100 + "%");
-			$("#boxC").css("width", (discussionTime/totalTime)*100 + "%");
-			$("#boxD").css("width", (breakTime/totalTime)*100 + "%");
-			$("#fullTimeBar").css("visibility", "visible");
+			$("#boxA" + dayID).css("width", (presentationTime/totalTime)*100 + "%");
+			$("#boxB" + dayID).css("width", (groupWorkTime/totalTime)*100 + "%");
+			$("#boxC" + dayID).css("width", (discussionTime/totalTime)*100 + "%");
+			$("#boxD" + dayID).css("width", (breakTime/totalTime)*100 + "%");
+			$("#fullTimeBar" + dayID).css("visibility", "visible");
 			if (breakTime/totalTime*100 <= 30){
-				$("#fullLineBar").css("visibility", "visible");
+				$("#fullLineBar" + dayID).css("visibility", "visible");
 			}
 			else{
-				$("#fullLineBar").css("visibility", "hidden");
+				$("#fullLineBar" + dayID).css("visibility", "hidden");
 			};
 		};
-		
 	};
 	
 	/*
@@ -66,18 +67,20 @@ function DayView (parameters, controller, model, app) {
 	this.init = function () {
 		console.log("DayView - init()");
 		console.log(parameters);
-		console.log(typeof parameters.position);
-		console.log(typeof parameters.position - 1);
+		console.log(parameters.position);
 		
 		//	Defining variables.
-		var startTime	 = model.getDay(parameters.position).getStart();
-		var endTime		 = model.getDay(parameters.position).getEnd();
-		var totalLength	 = model.getDay(parameters.position).getTotalLength();
+		var dayID = parameters.position;
+		var CurrentDay = model.getDay(dayID);
 		
-		var presentationTime 	= model.getDay(parameters.position).getLengthByType(0);
-		var groupWorkTime 		= model.getDay(parameters.position).getLengthByType(1);
-		var discussionTime 		= model.getDay(parameters.position).getLengthByType(2);
-		var breakTime 			= model.getDay(parameters.position).getLengthByType(3);
+		var startTime	 = CurrentDay.getStart();
+		var endTime		 = CurrentDay.getEnd();
+		var totalLength	 = CurrentDay.getTotalLength();
+		
+		var presentationTime 	= CurrentDay.getLengthByType(0);
+		var groupWorkTime 		= CurrentDay.getLengthByType(1);
+		var discussionTime 		= CurrentDay.getLengthByType(2);
+		var breakTime 			= CurrentDay.getLengthByType(3);
 		
 		var totalTime = presentationTime + groupWorkTime + discussionTime + breakTime;
 		
@@ -94,6 +97,11 @@ function DayView (parameters, controller, model, app) {
 		DOM["start-time"] = $("<span>");
 		DOM["start-time"].html("Start time : <b> " +  startTime  + " </b><br/>");
 		
+		DOM["start-time-hour"] = $("<span>");
+		DOM["start-time-hour"].html('Start time : <input type="text" class="text-input" value=' + startTime + '><br/>');
+		//DOM["start-time-hour"].addClass('text-input');
+		DOM["start-time"] = DOM["start-time-hour"];
+		
 		DOM["end-time"] = $("<span>");
 		DOM["end-time"].html("End time : <b> " +  endTime  + " </b><br/>");
 		
@@ -103,7 +111,7 @@ function DayView (parameters, controller, model, app) {
 		DOM["day-header-container"] = $("<header>");
 		DOM["day-header-container"].addClass("darkmarine boxHeader");
 		DOM["day-header"] = $("<h1>");
-		DOM["day-header"].html("Your Day");
+		DOM["day-header"].html("Day  " + (parseInt(dayID) + 1));
 		
 		DOM["day-activity-list"] = $("<ul>");
 		DOM["day-activity-list"].addClass("sortable dayActivityList");
@@ -136,16 +144,21 @@ function DayView (parameters, controller, model, app) {
 
 		// Building time bar
 		DOM["fullTimeBar"] = $("<div>");
-		DOM["fullTimeBar"].attr('id', 'fullTimeBar');
+		DOM["fullTimeBar"].addClass('fullTimeBar');
+		DOM["fullTimeBar"].attr('id', 'fullTimeBar' + dayID);
 		
 		DOM["box-a"] = $("<div>");
-		DOM["box-a"].attr('id', 'boxA');
+		DOM["box-a"].addClass('boxA');
+		DOM["box-a"].attr('id', 'boxA' + dayID);
 		DOM["box-b"] = $("<div>");
-		DOM["box-b"].attr('id', 'boxB');
+		DOM["box-b"].addClass('boxB');
+		DOM["box-b"].attr('id', 'boxB' + dayID);
 		DOM["box-c"] = $("<div>");
-		DOM["box-c"].attr('id', 'boxC');
+		DOM["box-c"].addClass('boxC');
+		DOM["box-c"].attr('id', 'boxC' + dayID);
 		DOM["box-d"] = $("<div>");
-		DOM["box-d"].attr('id', 'boxD');
+		DOM["box-d"].addClass('boxD');
+		DOM["box-d"].attr('id', 'boxD' + dayID);
 		
 		DOM["fullTimeBar"].append(DOM["box-c"]);
 		DOM["fullTimeBar"].append(DOM["box-b"]);
@@ -153,41 +166,18 @@ function DayView (parameters, controller, model, app) {
 		DOM["fullTimeBar"].append(DOM["box-d"]);
 		
 		DOM["fullLineBar"] = $("<div>");
-		DOM["fullLineBar"].attr('id','fullLineBar');
+		DOM["fullLineBar"].addClass('fullLineBar');
+		DOM["fullLineBar"].attr('id','fullLineBar' + dayID);
 		
 		DOM["lineLeft"] = $("<div>");
-		DOM["lineLeft"].attr('id','lineLeft');
+		DOM["lineLeft"].addClass('lineLeft');
+		DOM["lineLeft"].attr('id','lineLeft' + dayID);
 		DOM["lineRight"] = $("<div>");
-		DOM["lineRight"].attr('id','lineRight');
+		DOM["lineRight"].addClass('lineRight');
+		DOM["lineRight"].attr('id','lineRight' + dayID);
 		
 		DOM["fullLineBar"].append(DOM["lineLeft"]);
 		DOM["fullLineBar"].append(DOM["lineRight"]);
-
-		
-		if (totalTime == 0){
-			$("#boxA").css("width", 0);
-			$("#boxB").css("width", 0);
-			$("#boxC").css("width", 0);
-			$("#boxD").css("width", 0);
-			$("#fullLineBar").css("visibility", "hidden");
-			$("#fullTimeBar").css("visibility", "hidden");
-		}
-		else {
-			console.log("Timebar Test : " + presentationTime + " - "+ groupWorkTime + " - "+ discussionTime + " - "+ breakTime);
-			
-			$("#boxA").css("width", (presentationTime/totalTime)*100 + "%");
-			$("#boxB").css("width", (groupWorkTime/totalTime)*100 + "%");
-			$("#boxC").css("width", (discussionTime/totalTime)*100 + "%");
-			$("#boxD").css("width", (breakTime/totalTime)*100 + "%");
-			$("#fullTimeBar").css("visibility", "visible");
-			if (breakTime/totalTime*100 <= 30){
-				$("#fullLineBar").css("visibility", "visible");
-			}
-			else{
-				$("#fullLineBar").css("visibility", "hidden");
-			};
-		};
-		
 
 		//	Building view.
 		DOM["info-container"].append(DOM['start-time']);
@@ -203,10 +193,36 @@ function DayView (parameters, controller, model, app) {
 		DOM["container"].append(DOM["day-header-container"]);
 		DOM["container"].append(DOM["day-activity-list"]);
 		
+		$(document).ready(function() {
+			// Bars initialization
+			if (totalTime == 0){
+				$("#boxA" + dayID).css("width", 0);
+				$("#boxB" + dayID).css("width", 0);
+				$("#boxC" + dayID).css("width", 0);
+				$("#boxD" + dayID).css("width", 0);
+				$("#fullLineBar" + dayID).css("visibility", "hidden");
+				$("#fullTimeBar" + dayID).css("visibility", "hidden");
+			}
+			else {
+				$("#boxA" + dayID).css("width", (presentationTime/totalTime)*100 + "%");
+				$("#boxB" + dayID).css("width", (groupWorkTime/totalTime)*100 + "%");
+				$("#boxC" + dayID).css("width", (discussionTime/totalTime)*100 + "%");
+				$("#boxD" + dayID).css("width", (breakTime/totalTime)*100 + "%");
+				$("#fullTimeBar" + dayID).css("visibility", "visible");
+				if (breakTime/totalTime*100 <= 30){
+					$("#fullLineBar" + dayID).css("visibility", "visible");
+				}
+				else{
+					$("#fullLineBar" + dayID).css("visibility", "hidden");
+				};
+			};
+		});
+		
+		
+
 		//	Returning.
 		console.log(DOM["container"]);
 		return DOM["container"];
-		
 	};
 	/*
 	 *	addActivitiesToList

@@ -4,7 +4,7 @@
  *	-------------------------------------------------------------------------------
  */
 
-div#fullLineBar {
+div.fullLineBar {
 	height: 2.5em;
 	width: 13.2em;
 	float: left;
@@ -13,7 +13,7 @@ div#fullLineBar {
 	visibility: hidden;
 }
 
-div#fullTimeBar {
+div.fullTimeBar {
 	background-color: #E0E0E0;
 	height: 1.5em;
 	width: 13.2em;
@@ -30,42 +30,42 @@ div#fullTimeBar {
 	border-width:1px;
 }
 
-div#boxA {
+div.boxA {
 	background-color: #7f6453;
 	height: 100%;
 	width: 0%;
 	float: left;
 }
 
-div#boxB {
+div.boxB {
 	background-color: #5c8a2d;
 	height: 100%;
 	width: 0%;
 	float: left;
 }
 
-div#boxC {
+div.boxC {
 	background-color: #cd5931;
 	height: 100%;
 	width: 0%;
 	float: left;
 }
 
-div#boxD {
+div.boxD {
 	background-color: #c5b441;
 	height: 100%;
 	width: 0%;
 	float: left;
 }
 
-div#lineLeft {
+div.lineLeft {
 	width: 70%;
 	height: 100%;
 	border-right:#cc0005 double 8px;
 	float: left;
 }
 
-div#lineRight {
+div.lineRight {
 	width: 30%;
 	height: 100%;
 	float: left;
