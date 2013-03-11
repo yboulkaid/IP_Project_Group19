@@ -275,8 +275,4 @@ function DayView (parameters, controller, model, app) {
 
 		};
 	};
-	
-	this.addMeta = function () {
-		
-	};
 };
