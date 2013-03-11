@@ -1,0 +1,82 @@
+/*
+ *	timeBar.css
+ *	This file contains the main styling for the time bar.
+ *	-------------------------------------------------------------------------------
+ */
+
+div#fullLineBar {
+	height: 2.5em;
+	width: 13.2em;
+	float: left;
+	z-index: 10;
+	position: absolute;
+	visibility: hidden;
+}
+
+div#fullTimeBar {
+	background-color: #E0E0E0;
+	height: 1.5em;
+	width: 13.2em;
+	float: left;
+	position: absolute;
+	visibility: hidden;
+	
+	display: inline;
+	
+	box-shadow:0px 0px 10px #888888;
+	margin-top:0.5em;
+	border-style:solid;
+	border-color:grey;
+	border-width:1px;
+}
+
+div#boxA {
+	background-color: #7f6453;
+	height: 100%;
+	width: 0%;
+	float: left;
+}
+
+div#boxB {
+	background-color: #5c8a2d;
+	height: 100%;
+	width: 0%;
+	float: left;
+}
+
+div#boxC {
+	background-color: #cd5931;
+	height: 100%;
+	width: 0%;
+	float: left;
+}
+
+div#boxD {
+	background-color: #c5b441;
+	height: 100%;
+	width: 0%;
+	float: left;
+}
+
+div#lineLeft {
+	width: 70%;
+	height: 100%;
+	border-right:#cc0005 double 8px;
+	float: left;
+}
+
+div#lineRight {
+	width: 30%;
+	height: 100%;
+	float: left;
+}
+
+div#buttonBar {
+	position: relative;
+}
+
+div#container {
+	height: 50px;
+	width: 150px;
+	position: relative;
+}
