@@ -82,7 +82,7 @@ function Day(startH,startM) {
 	// the end time of the day
 	this.getEnd = function() {
 		var end = this._start + this.getTotalLength();
-		return ("0" + Math.floor(end/60)).slice(-2) + ":" + ("0" + (end % 60)).slice(-2);
+		return ("0" + Math.floor(end/60) % 24).slice(-2) + ":" + ("0" + (end % 60)).slice(-2);
 	};
 	
 	// returns the string representation Hours:Minutes of 
@@ -147,7 +147,7 @@ function Model(){
 		if(startH){
 			day = new Day(startH,startM);
 		} else {
-			day = new Day(5,0);
+			day = new Day(8,0);
 		}
 		this.days.push(day);
 		this.notifyObservers();

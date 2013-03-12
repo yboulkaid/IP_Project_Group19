@@ -20,14 +20,14 @@ function DayViewController (model, app) {
 	}());
 		
 	this.startChanged = function (dayID,newText) {
-			var valid = /^([0-9]{2}):([0-9]{2})$/.test(newText)
+			var valid = /^([0-2][0-9]):([0-5][0-9])$/.test(newText)
 			var match=newText.match(/^([0-9]{2}):([0-9]{2})$/);
 			
 			if(valid){
 				var hours = parseInt(match[1]);
 				var minutes = parseInt(match[2]);
 				
-				if(hours >= 0 && hours <= 23 && minutes >=0 && minutes <=59){
+				if(hours <= 23){
 					model.getDay(dayID).setStart(model,hours,minutes);
 					return true;
 				}

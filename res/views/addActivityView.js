@@ -32,17 +32,31 @@ function AddActivityView (parameters, controller, model, app) {
 		DOM["name"] = $("<input>");
 		DOM["name"].attr({
 			"type" : "text",
-			"placeholder" : "name"
+			"placeholder" : "Name"
 			
+		});
+		
+		// Name validation CSS change
+		DOM["name"].bind("propertychange input paste", function(e){
+			var name = $(DOM["name"]).val();
+			if(name != ""){
+				DOM["name"].addClass('valid-input');
+				DOM["name"].removeClass('invalid-input');
+			}else{
+				DOM["name"].removeClass('valid-input');
+				DOM["name"].addClass('invalid-input');
+			}
 		});
 		
 		//	... Min
 		DOM["minutes"] = $("<input>");
 		DOM["minutes"].attr({
 			"type" : "text",
-			"placeholder" : "# minutes"
+			"placeholder" : "Duration (minutes)"
 			
 		});
+		
+		// Minutes validation CSS change
 		DOM["minutes"].bind("propertychange input paste", function(e){
 			var minutes = $(DOM["minutes"]).val();
 			if(controller.isTimeValid(minutes)){
@@ -75,20 +89,20 @@ function AddActivityView (parameters, controller, model, app) {
 		//	... Text
 		DOM["text-area"] = $("<textarea>");
 		DOM["text-area"].attr({
-			"placeholder" : "description"
+			"placeholder" : "Description"
 			
 		});
 		
 		//	... Buttons
 		DOM["cancel"] = $("<button>");
-		DOM["cancel"].html("cancel");
+		DOM["cancel"].html("Cancel");
 		DOM["cancel"].click(function () {
 			controller.cancelButtonClicked();
 			
 		});
 		
 		DOM["save"] = $("<button>");
-		DOM["save"].html("save");
+		DOM["save"].html("Save");
 		DOM["save"].click(function () {
 			//	Defining variables.
 			var form = {};
@@ -98,6 +112,14 @@ function AddActivityView (parameters, controller, model, app) {
 			form.minutes = DOM["minutes"].val();
 			form.select = DOM["type-select"].val();
 			form.text = DOM["text-area"].val();
+			
+			// Changing CSS in case of non filled fields
+			if (form.minutes == ""){
+				DOM["minutes"].addClass('invalid-input');
+			}
+			if (form.name == ""){
+				DOM["name"].addClass('invalid-input');
+			}
 			
 			controller.saveButtonClicked(form);
 			

@@ -58,7 +58,11 @@ function AddActivityViewController (model, app) {
 		
 		//	Updating model.
 		
-		if(this.isTimeValid(form.minutes)){
+		if(this.isTimeValid(form.minutes) && (form.name != "")){
+			if(form.text == ""){
+				form.text = "<em>(No description)</em>";
+			}
+			
 			model.addActivity(new Activity(form.name, parseInt(form.minutes), type[form.select], form.text), null);
 			this.cancelButtonClicked();	//	Closing.
 		}else{
