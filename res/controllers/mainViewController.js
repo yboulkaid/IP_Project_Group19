@@ -29,31 +29,4 @@ function MainViewController (model, app) {
 		model.addDay();
 		
 	};
-	
-	/*
-	 *	windowScroll ().
-	 *	This method is triggered when the window is scrolled.
-	 *	--------------------------------------------------------
-	 */
-	this.windowScroll = function () {
-		//	Defining variables.
-		var addDayPaddingDefault = 41,
-			addDayPadding,
-			dayOffset;
-			
-		//	Calculating new padding.
-		if (window.pageYOffset == 0) {
-			addDayPadding = addDayPaddingDefault;
-			
-		} else {
-			dayOffset = Math.floor(model.getDays().length/3) * 8;
-			//console.log(dayOffset);
-			addDayPadding = addDayPaddingDefault + (window.pageYOffset/16) + dayOffset;
-			
-		};
-		$("#add-day-button-container").css({
-			"padding-top" : addDayPadding + "em"
-			
-		});
-	};
 };
