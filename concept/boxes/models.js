@@ -9,7 +9,7 @@ BoxModel = function (id) {
 			itemsInBox.push(item);
 			
 			//	Logging.
-			console.log("item with id ' " + item.getId() + " ' added to box.")
+			//console.log("item with id ' " + item.getId() + " ' added to box.")
 			
 		},
 		removeItem : function (itemId) {
@@ -19,7 +19,7 @@ BoxModel = function (id) {
 					delete itemsInBox[items];
 					
 					//	Logging.
-					console.log("item with id ' " + itemId + " ' removed from box.")
+					//console.log("item with id ' " + itemId + " ' removed from box.")
 					
 				}
 			}
@@ -35,7 +35,7 @@ BoxModel = function (id) {
 			if (itemsInBox.length >= 1) {
 				item = itemsInBox[0];
 				//	Logging
-				console.log("getting item with id ' " + itemsInBox[0].getId() + " ' from box.")
+				//console.log("getting item with id ' " + itemsInBox[0].getId() + " ' from box.")
 				
 				//	Removing item from box.
 				this.removeItem(item.getId());

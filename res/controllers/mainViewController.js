@@ -9,23 +9,12 @@ function MainViewController (model, app) {
 	"use strict";
 	
 	/*
-	 *	init ().
-	 * 	This method is triggered on creation to initialize the controller.
-	 *	(it can be removed if not used).
-	 *	------------------------------------
-	 */
-	this.init = (function() {
-		console.log("mainViewController - init()");
-		
-	}());
-	
-	/*
 	 *	addDayButtonClicked ().
 	 *	This method is triggered when "add day"-button is clicked.
 	 *	--------------------------------------------------------------
 	 */
 	this.addDayButtonClicked = function () {
-		console.log("addDayButtonClicked()");
+		//console.log("addDayButtonClicked()");
 		model.addDay();
 		
 	};
@@ -47,7 +36,7 @@ function MainViewController (model, app) {
 			
 		} else {
 			dayOffset = Math.floor(model.getDays().length/3) * 8;
-			//console.log(dayOffset);
+			////console.log(dayOffset);
 			addDayPadding = addDayPaddingDefault + (window.pageYOffset/16) + dayOffset;
 			
 		};

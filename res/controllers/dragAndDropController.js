@@ -12,17 +12,6 @@ function DragAndDropController (model, id) {
 	this.started = false;
 	
 	/*
-	 *	init ().
-	 * 	This method is triggered on creation to initialize the controller.
-	 *	(it can be removed if not used).
-	 *	------------------------------------
-	 */
-	this.init = (function() {
-		console.log("DragAndDropController - init()");
-		
-	}());
-	
-	/*
 	 *	update(e, ui, target).
 	 *	...
 	 */
@@ -30,8 +19,8 @@ function DragAndDropController (model, id) {
 		//	Defining variables
 		var arg = [];
 		if (this.allowedToUpdate) {
-			//	console.log("---"); console.log(ui.item);
-			//	console.log(ui.item.index()); console.log(target);
+			//	//console.log("---"); //console.log(ui.item);
+			//	//console.log(ui.item.index()); //console.log(target);
 			//	Updating model (sorting inside).
 			//	-----------------------------------
 			arg["old-day"] = id;
@@ -40,7 +29,7 @@ function DragAndDropController (model, id) {
 			arg["new-position"] = ui.item.index();
 
 			if (ui.sender) {
-				console.log(ui);
+				//console.log(ui);
 				//	Updating model (between lists).
 				//	----------------------------------
 				if (ui.sender.context.id == "activities-list") {
@@ -77,9 +66,8 @@ function DragAndDropController (model, id) {
 	 */
 	this.onOut = function (e, ui) {
 		if (this.started) {
-			console.log("onOut");
+			//console.log("onOut");
 			this.allowedToUpdate = false;
-			
 		};
 	};
 	
@@ -89,7 +77,7 @@ function DragAndDropController (model, id) {
 	 *	is set to true. This allowes onOver and onOut method to operate.
 	 */	
 	this.setStart = function (e, ui) {
-		console.log("setStart");
+		//console.log("setStart");
 		this.started = true;
 
 	};

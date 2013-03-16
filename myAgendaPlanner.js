@@ -31,7 +31,7 @@ function MyAgendaPlanner (model) {
 	 *	--------------------------------------------------
 	 */
 	this.init = function () {
-		console.log("myAgendaPlanner - init()");
+		//console.log("myAgendaPlanner - init()");
 		//	Initalizing views by pushing view-objects to the views-array.
 		this.views["main-view"] = {
 			type : "main-view",
@@ -76,7 +76,7 @@ function MyAgendaPlanner (model) {
 	 *	--------------------------------------------------------------------------
 	 */
 	this.displayView = function (viewParameters, viewObject, targetDOM) {
-		console.log("myAgendaPlanner - displayView()");
+		//console.log("myAgendaPlanner - displayView()");
 		//	Defining variables.
 		var controller,
 			view;

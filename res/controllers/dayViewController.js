@@ -6,19 +6,7 @@
  *	-------------------------------------------------
  */
 function DayViewController (model, app) {
-	"use strict";
-	
-	/*
-	 *	init ().
-	 * 	This method is triggered on creation to initialize the controller.
-	 *	(it can be removed if not used).
-	 *	------------------------------------
-	 */
-	this.init = (function() {
-		console.log("DayViewController - init()");
-		
-	}());
-		
+	"use strict";		
 	this.startChanged = function (dayID,newText) {
 			var valid = /^([0-2][0-9]):([0-5][0-9])$/.test(newText)
 			var match=newText.match(/^([0-9]{2}):([0-9]{2})$/);

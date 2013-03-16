@@ -6,19 +6,7 @@
  *	-------------------------------------------------
  */
 function AddActivityViewController (model, app) {
-	"use strict";
-	
-	/*
-	 *	init ().
-	 * 	This method is triggered on creation to initialize the controller.
-	 *	(it can be removed if not used).
-	 *	------------------------------------
-	 */
-	this.init = (function() {
-		console.log("addActivityViewController - init()");
-		
-	}());
-	
+	"use strict";	
 	/*
 	 *	cancelButtonClicked ().
 	 *	This method closes the addActivityView.
@@ -66,7 +54,7 @@ function AddActivityViewController (model, app) {
 			model.addActivity(new Activity(form.name, parseInt(form.minutes), type[form.select], form.text), null);
 			this.cancelButtonClicked();	//	Closing.
 		}else{
-			console.log('NO!');
+			//console.log('NO!');
 		}
 	};
 };
