@@ -6,7 +6,8 @@ function AddActivityView (parameters, controller, model, app) {
 	 */
 	model.addObserver(this);
 	this.update = function (arg) {
-		console.log("addActivityView - update()");
+		//Needs to stay or the add activity function breaks
+		//console.log("addActivityView - update()");
 		
 	};
 	
@@ -20,7 +21,7 @@ function AddActivityView (parameters, controller, model, app) {
 	 *	------------------------------------------------------------------------------
 	 */
 	this.init = function () {
-		console.log("addActivityView - init()");
+		//console.log("addActivityView - init()");
 		//	Defining variables.
 		var DOM = [];
 		
@@ -60,11 +61,11 @@ function AddActivityView (parameters, controller, model, app) {
 		DOM["minutes"].bind("propertychange input paste", function(e){
 			var minutes = $(DOM["minutes"]).val();
 			if(controller.isTimeValid(minutes)){
-				console.log("Valid ");
+				//console.log("Valid ");
 				DOM["minutes"].addClass('valid-input');
 				DOM["minutes"].removeClass('invalid-input');
 			}else{
-				console.log("Not Valid ");
+				//console.log("Not Valid ");
 				DOM["minutes"].removeClass('valid-input');
 				DOM["minutes"].addClass('invalid-input');
 			}
@@ -138,7 +139,7 @@ function AddActivityView (parameters, controller, model, app) {
 		DOM["container"].append(DOM["save"]);		
 		
 		//	Returning.
-		console.log(DOM["container"]);
+		//console.log(DOM["container"]);
 		return DOM["container"];
 	
 	};

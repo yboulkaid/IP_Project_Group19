@@ -6,7 +6,7 @@ function ActivityView (parameters, controller, model, app) {
 	 */
 	model.addObserver(this);
 	this.update = function (arg) {
-		console.log("activityView - update()");
+		//console.log("activityView - update()");
 		this.addActivitiesToList($("#activities-list"));
 		
 	};
@@ -21,7 +21,7 @@ function ActivityView (parameters, controller, model, app) {
 	 *	------------------------------------------------------------------------------
 	 */
 	this.init = function () {
-		console.log("activityView - init()");
+		//console.log("activityView - init()");
 		//	Defining variables.
 		var DOM = [],
 			dndController = new DragAndDropController(model, parameters.position);
@@ -98,7 +98,7 @@ function ActivityView (parameters, controller, model, app) {
 		DOM["container"].append(DOM["activities-container"]);	
 		
 		//	Returning.
-		console.log(DOM["container"]);
+		//console.log(DOM["container"]);
 		return DOM["container"];
 	
 	};
@@ -109,7 +109,7 @@ function ActivityView (parameters, controller, model, app) {
 	 *	------------------------------------------
 	 */
 	this.addActivitiesToList = function (list) {
-		console.log("activityView - addActivitiesToList()");
+		//console.log("activityView - addActivitiesToList()");
 		
 		//	Defining variables.
 		var activity,

@@ -9,17 +9,6 @@ function ActivityItemController (model) {
 	"use strict";
 	this.clicked = false;
 	
-	/*
-	 *	init ().
-	 * 	This method is triggered on creation to initialize the controller.
-	 *	(it can be removed if not used).
-	 *	------------------------------------
-	 */
-	this.init = (function() {
-		console.log("ActivityItemController - init()");
-		
-	}());
-	
 	this.activityItemClicked = function (DOM, activity) {
 		if (this.clicked) {
 			//	To close description.

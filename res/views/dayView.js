@@ -9,12 +9,12 @@ function DayView (parameters, controller, model, app) {
 	 */
 	model.addObserver(this);
 	this.update = function (arg) {
-		console.log("dayView - update()");
+		//console.log("dayView - update()");
 		
 		var dayID = parameters.position;
 		var CurrentDay = model.getDay(dayID);
 
-		//	console.log("dayView - update()");
+		//console.log("dayView - update()");
 		this.addActivitiesToList(DOM["day-activity-list"], parameters.position);
 
 		// Meta info update :
@@ -83,7 +83,7 @@ function DayView (parameters, controller, model, app) {
 	 *	------------------------------------------------------------------------------
 	 */
 	this.init = function () {
-		console.log("DayView - init()");
+		//console.log("DayView - init()");
 		
 		//	Defining variables.
 		var dayID = parameters.position;
@@ -242,7 +242,7 @@ function DayView (parameters, controller, model, app) {
 		});
 		
 		//	Returning.
-		console.log(DOM["container"]);
+		//console.log(DOM["container"]);
 		return DOM["container"];
 	};
 	/*
@@ -252,7 +252,7 @@ function DayView (parameters, controller, model, app) {
 	 *	------------------------------------------
 	 */
 	this.addActivitiesToList = function (list, position) {
-		console.log("dayView - addActivitiesToList()");	
+		//console.log("dayView - addActivitiesToList()");	
 		
 		//	Defining variables.
 		var activity,

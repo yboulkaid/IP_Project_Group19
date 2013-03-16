@@ -6,9 +6,8 @@ function MainView (parameters, controller, model, app) {
 	 */
 	model.addObserver(this);
 	this.update = function (arg) {
-		console.log("mainView - update()");
+		//console.log("mainView - update()");
 		this.addDayViews();
-		
 	};
 	
 	/*
@@ -21,7 +20,7 @@ function MainView (parameters, controller, model, app) {
 	 *	------------------------------------------------------------------------------
 	 */
 	this.init = function () {
-		console.log("mainView - init()");
+		//console.log("mainView - init()");
 		//	Defining variables.
 		var DOM = [];
 		
@@ -93,7 +92,7 @@ function MainView (parameters, controller, model, app) {
 		});*/
 		
 		//	Returning.
-		console.log(DOM["main-view-container"]);
+		//console.log(DOM["main-view-container"]);
 		return DOM["main-view-container"];
 		
 	};

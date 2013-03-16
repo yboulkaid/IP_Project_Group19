@@ -14,8 +14,8 @@
 		<link rel="stylesheet" href="res/stylesheets/timeBar.css"/>	
 		
 		<!-- JavaScript Libraries -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
 		
 		<!-- JavaScript -->
 		<!-- ... Models -->
@@ -40,39 +40,13 @@
 				"use strict";
 				//	Defining Variables
 				var application,
-					model,
-					testData;
-					
-				//	Function for adding testdata.
-				function createTestData(){
-					model.addDay();
-					model.addDay();
-					model.addDay();
-					model.addActivity(new Activity("Introduction",10,0,"lol Hej ogpop fkm sdmfg"),0);
-					model.addActivity(new Activity("Idea 1",30,0,"lol Hej ogpop fkm sdmfg"),0);
-					model.addActivity(new Activity("Working in groups",35,1,"lol Hej ogpop fkm sdmfg"),null);
-					model.addActivity(new Activity("Idea 1 discussion",15,2,"lol Hej ogpop fkm sdmfg"),0);
-					model.addActivity(new Activity("Coffee break",20,3,"lol Hej ogpop fkm sdmfg"),null);
-					model.addActivity(new Activity("Presentation",35,0,"lol Hej ogpop fkm sdmfg"),1);
-					model.addActivity(new Activity("Group",15,1,"lol Hej ogpop fkm sdmfg"),1);
-					model.addActivity(new Activity("Discussion",20,2,"lol Hej ogpop fkm sdmfg"),1);
-					model.addActivity(new Activity("Coffee break",2,3,"lol Hej ogpop fkm sdmfg"),1);
-					
-					console.log("Day Start: " + model.days[0].getStart());
-					console.log("Day End: " + model.days[0].getEnd());
-					console.log("Day Length: " + model.days[0].getTotalLength() + " min");
-					$.each(ActivityType,function(index,type){
-						console.log("Day '" + ActivityType[index] + "' Length: " +  model.days[0].getLengthByType(index) + " min");
-					});
-				};
+					model;
 				
 				//	Executing
 				model = new Model();
-				//createTestData();	//	Populating model with test-data. Remove later.
 				
 				application = new MyAgendaPlanner(model);
 				application.init();
-				
 			});
 		</script>
 	</head>
