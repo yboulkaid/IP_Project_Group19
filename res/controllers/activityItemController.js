@@ -1,8 +1,6 @@
 /*
  *	ActivityItemController (model).
  *	This is a controller class for drag and drop functions.
- * 
- *	@Parameter 1	(model | object Model | ... ).
  *	-------------------------------------------------
  */
 function ActivityItemController (model) {

@@ -1,8 +1,6 @@
 /*
  *	activityViewController (model, app).
  *	This is a controller class for the day view(s).
- * 
- *	@Parameter 1	(model | object Model | ... ).
  *	-------------------------------------------------
  */
 function DayViewController (model, app) {

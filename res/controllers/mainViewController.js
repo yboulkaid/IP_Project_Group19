@@ -1,8 +1,6 @@
 /*
  *	MainViewController (model).
  *	This is a controller class for the main view.
- * 
- *	@Parameter 1	(model | object Model | ... ).
  *	-------------------------------------------------
  */
 function MainViewController (model, app) {

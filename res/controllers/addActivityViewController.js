@@ -1,8 +1,6 @@
 /*
  *	activityViewController (model).
  *	This is a controller class for the activity view.
- * 
- *	@Parameter 1	(model | object Model | ... ).
  *	-------------------------------------------------
  */
 function AddActivityViewController (model, app) {

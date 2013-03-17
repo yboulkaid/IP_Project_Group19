@@ -1,9 +1,7 @@
 /*
  *	DragAndDropController (model).
  *	This is a controller class for drag and drop functions.
- * 
- *	@Parameter 1	(model | object Model | ... ).
- *	-------------------------------------------------
+ *	----------------------------------------------------------
  */
 function DragAndDropController (model, id) {
 	"use strict";
@@ -51,7 +49,8 @@ function DragAndDropController (model, id) {
 	
 	/*
 	 *	onOver(e, ui)
-	 *	...
+	 *	When dragging an item in to the sortable container, updating is allowed
+	 *	again.
 	 */
 	this.onOver = function (e, ui) {
 		if (this.started) {
@@ -62,7 +61,8 @@ function DragAndDropController (model, id) {
 	
 	/*
 	 *	onOut(e, ui)
-	 *	...
+	 *	When dragging an item out of the sortable container, that container
+	 *	is no longer allowed to update the model.
 	 */
 	this.onOut = function (e, ui) {
 		if (this.started) {
