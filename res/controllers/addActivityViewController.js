@@ -28,6 +28,8 @@ function AddActivityViewController (model, app) {
 	 *	This method adds an activity to actitivy-list.
 	 *	-------------------------------------------------
 	 */
+	
+	// Data validation function for the time
 	this.isTimeValid = function (time){
 		return /^[0-9]+$/.test(time);
 	}
@@ -42,15 +44,18 @@ function AddActivityViewController (model, app) {
 			
 		
 		
-		//	Updating model.
-		
+		//	Validating the data
 		if(this.isTimeValid(form.minutes) && (form.name != "")){
+			
+			// Default description if no description is added
 			if(form.text == ""){
 				form.text = "<em>(No description)</em>";
 			}
 			
+			//	Updating the model
 			model.addActivity(new Activity(form.name, parseInt(form.minutes), type[form.select], form.text), null);
-			this.cancelButtonClicked();	//	Closing.
+			//	Closing
+			this.cancelButtonClicked();
 		}else{
 			//console.log('NO!');
 		}

@@ -11,7 +11,6 @@ function DragAndDropController (model, id) {
 	
 	/*
 	 *	update(e, ui, target).
-	 *	...
 	 */
 	this.update = function (e, ui, target, prevPos) {
 		//	Defining variables
